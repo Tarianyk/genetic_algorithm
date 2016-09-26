@@ -1,0 +1,662 @@
+﻿/units,si
+*afun,deg
+s=2   
+ro1=7850 
+ro2=2500 
+ro3=7000 
+ro5=1100 
+E1=2e11 
+E2=1.7e6
+E3=3e10 
+E5=10.0e8 
+nu1=0.3  
+nu2=0.48 
+nu3=0.2  
+nu5=0.36  
+E11=2             
+E22=3    
+E33=4    
+nu11=5    
+nu22=3    
+nu33=1    
+rg1=3    
+rg2=4    
+rg3=5    
+ro=6    
+p=1
+
+z1=0.001
+
+*do,i,2,10,1
+	   z%i%=0.003
+*enddo
+
+
+m1=.003  
+m2=.003
+m3=.003
+m4=.003
+m5=.003
+m6=.003
+m7=.003
+m8=.003
+m9=.003
+m10=.003
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!all base of data!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+a=0.3  
+b=0.3  
+h=0
+counter=10         
+setka= 8   
+l=2    
+z=30
+q=10
+f=20
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!searching top layer!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+m0=0
+
+	*do,i,1,counter,1
+		m0=m0+m%i%
+	*enddo
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!entrance to modelling!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+/prep7  
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!isotropic properties !!!!!!!!!!!!!!!!!!!!!!!!!!
+ET,1,185
+MPTEMP,,,,,,,,  
+MPTEMP,1,0  
+MPDATA,EX,1,,E1 
+MPDATA,PRXY,1,,nu1  
+MPTEMP,,,,,,,,  
+MPTEMP,1,0  
+MPDATA,DENS,1,,ro1 
+MPTEMP,,,,,,,,  
+MPTEMP,1,0  
+MPDATA,EX,2,,E2 
+MPDATA,PRXY,2,,nu2  
+MPTEMP,,,,,,,,  
+MPTEMP,1,0  
+MPDATA,DENS,2,,ro2
+MPTEMP,,,,,,,,  
+MPTEMP,1,0  
+MPDATA,EX,3,,E3 
+MPDATA,PRXY,3,,nu3  
+MPTEMP,,,,,,,,  
+MPTEMP,1,0  
+MPDATA,DENS,3,,ro3
+
+MPTEMP,,,,,,,,  
+MPTEMP,1,0  
+MPDATA,EX,5,,E5 
+MPDATA,PRXY,5,,nu5  
+MPTEMP,,,,,,,,  
+MPTEMP,1,0  
+MPDATA,DENS,5,,ro5 
+
+sect,1,REINF,SMEAR,try1
+secd,5 ,0.005 ,1.08 ,,45.0,ELEF,1,0.5
+secn, 1
+
+sect,2,REINF,SMEAR,try2
+secd,5 ,0.005 ,1.08 ,,45.0,ELEF,1,0.5
+secn, 2
+
+sect,3,REINF,SMEAR,try3
+secd,5 ,0.005 ,1.08 ,,45.0,ELEF,1,0.5
+secn, 3
+
+sect,4,REINF,SMEAR,try4
+secd,5 ,0.005 ,1.08 ,,45.0,ELEF,1,0.5
+secn, 4
+
+sect,5,REINF,SMEAR,try5
+secd,5 ,0.005 ,1.08 ,,45.0,ELEF,1,0.5
+secn, 5
+
+sect,6,REINF,SMEAR,try6
+secd,5 ,0.005 ,1.08 ,,45.0,ELEF,1,0.5
+secn, 6
+
+sect,7,REINF,SMEAR,try7
+secd,5 ,0.005 ,1.08 ,,45.0,ELEF,1,0.5
+secn, 7
+
+sect,8,REINF,SMEAR,try8
+secd,5 ,0.005 ,1.08 ,,45.0,ELEF,1,0.5
+secn, 8
+
+sect,9,REINF,SMEAR,try9
+secd,5 ,0.005 ,1.08 ,,45.0,ELEF,1,0.5
+secn, 9
+
+sect,10,REINF,SMEAR,try10
+secd,5 ,0.005 ,1.08 ,,45.0,ELEF,1,0.5
+secn, 10
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!entrance to build!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+k,1,0,0,h  	$$  Q1=KP(0,0,h)
+k,2,b,0,h   $$  Q2=KP(b,0,h) 
+k,3,b,b,h 	$$  Q3=KP(b,b,h) 
+k,4,0,b,h   $$  Q4=KP(0,b,h) 
+L,Q1,Q2
+L,Q2,Q3
+L,Q3,Q4
+L,Q4,Q1
+al,all
+cm,area1,area
+	*do,i,1,counter,1
+		cmsel,s,area%i% !select every area of middle layer
+		*get,buf%i%,area,0,num,min  ! get the value
+		VOFFST,buf%i%,m%i%, , !!pull the surface
+		wpoff,0,0,m%i% !! select system coordinate
+		CSYS,4         ! select system coordinate
+		cm,volume%i%,volu !!select the volume
+		ASEL,S,LOC,Z,0 !!!select the area with some properties
+		cm,area%i+1%,area !!get a name this area
+cm,slay,area
+VSEL,U, , ,All 
+ASEL,U, , ,All 
+	*enddo
+nummrg,all, , , ,low
+
+*dim,val,array,10,1,1,,,
+val(1)=1,1,1,0,1,1,0,0,0,1
+
+*do,i,1,counter,p 
+				cmsel,s,volume%i%   
+				VATT,     2, ,   1,       0 
+				ASLV,S  
+				LSLA,S  
+				LSEL,U,LOC,y,0  
+				LSEL,U,LOC,Y,b/setka   
+				LESIZE,All,b/setka, , , , , , ,1   
+				LSLA,S  
+				LSEL,U,LOC,x,0  
+				LSEL,U,LOC,x,b/setka   
+				LESIZE,All,b/setka, , , , , , ,1   
+				LSLA,S  
+				LSEL,r,LOC,Y,b/setka   
+				LSEL,a,LOC,Y,0  
+				LSEL,R,LOC,x,0  
+				LESIZE,All,m%i%/3, , , , , , ,1 
+				VMESH,volume%i% 
+*enddo
+
+
+
+
+CSYS,0 
+WPAVE,0,0,m0 
+CSYS,4 
+asel,u,,,all
+lsel,U,,,all
+vsel,U,,,all
+k,201,0,0,0     $$ Q9=KP(0,0,h)
+k,202,b/2,0,0   $$ Q10=KP(b/2,0,h)
+k,203,b/2,b/2,0 $$ Q11=KP(b/2,b/2,h)
+k,204,0,b/2,0   $$ Q12=KP(0,b/2,h)
+l,Q9,Q10
+l,Q10,Q11
+l,Q11,Q12
+l,Q12,Q9
+al,all
+cm,toplayer,area
+*get,na1,area,0,num,min
+voffst,na1,b/6
+ASEL,S,LOC,Z,b/20 
+cm,pressure,area
+cm,top,volu
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!?????????? ??????? ????!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+asel,u,,,all
+lsel,U,,,all
+vsel,U,,,all
+CSYS,0  
+WPAVE,0,0,0 
+CSYS,4
+asel,u,,,all
+lsel,U,,,all
+vsel,U,,,all
+k,105,0,0,0      $$  Q5=KP(0,0,0)
+k,106,b*2,0,0    $$  Q6=KP(b*2,0,0)
+k,107,b*2,b*2,0  $$  Q7=KP(b*2,b*2,0)
+k,108,0,b*2,0    $$  Q8=KP(0,b*2,0)
+l,Q5,Q6
+l,Q6,Q7
+l,Q7,Q8
+l,Q8,Q5
+al,all
+*get,qw,area,0,num,max
+cm,cont1,area
+voffst,qw,-b/5
+ASEL,S,LOC,Z,-b/5 
+cm,dof,area
+cm,bot,volu
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!????????? ?? ?? ? ??????? ??????????!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+!!!!!!!!!!!!!??????!!!!!!!!!!!!!!!!!!!!!!!!!!!
+cmsel,s,bot
+VATT,3,,1,0 
+ASLV,S  
+LSLA,S 
+LSEL,U,LOC,y,0  
+LSEL,U,LOC,Y,b/f
+LESIZE,All,b/f, , , , , , ,1 
+LSLA,S 
+LSEL,U,LOC,x,0  
+LSEL,U,LOC,x,b/f
+LESIZE,All,b/f, , , , , , ,1 
+LSLA,S 
+LSEL,r,LOC,Y,b/f
+LSEL,a,LOC,Y,0
+LSEL,R,LOC,x,0  
+LESIZE,All,b/f, , , , , , ,1  
+VMESH,bot
+ALLSEL,ALL
+!!!!!!!!!!???????!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	
+
+!!!!!!!!!!!!!!!!???????!!!!!!!!!!!!!!!!!!!!!!!!! 
+ALLSEL,ALL 
+cmsel,s,top
+VATT,       1, ,   1,       0  
+ASLV,S  
+LSLA,S 
+LSEL,U,LOC,y,0  
+LSEL,U,LOC,Y,b/3  
+LESIZE,All,b/z, , , , , , ,1
+LSLA,S 
+LSEL,U,LOC,x,0  
+LSEL,U,LOC,x,b/3  
+LESIZE,All,b/z, , , , , , ,1
+LSLA,S 
+LSEL,r,LOC,Y,b/3  
+LSEL,a,LOC,Y,0
+LSEL,R,LOC,x,0  
+LESIZE,All,b/3/5, , , , , , ,1
+VMESH,top
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!??????? ??????? ?????????!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ASEL,S,LOC,X,
+ASEL,a,LOC,y,  
+DA,all,SYMM
+ALLSEL,ALL
+
+
+/COM, CONTACT PAIR CREATION - START 
+CM,_NODECM,NODE 
+CM,_ELEMCM,ELEM 
+CM,_KPCM,KP 
+CM,_LINECM,LINE 
+CM,_AREACM,AREA 
+CM,_VOLUCM,VOLU 
+/GSAV,cwz,gsav,,temp
+MP,MU,1,
+MAT,1   
+MP,EMIS,1,7.88860905221e-031
+R,3 
+REAL,3  
+ET,3,170
+ET,4,174
+R,3,,,1.0,0.1,0,
+RMORE,,,1.0E20,0.0,1.0, 
+RMORE,0.0,0,1.0,,1.0,0.5
+RMORE,0,1.0,1.0,0.0,,1.0
+KEYOPT,4,4,0
+KEYOPT,4,5,0
+KEYOPT,4,7,0
+KEYOPT,4,8,0
+KEYOPT,4,9,0
+KEYOPT,4,10,2   
+KEYOPT,4,11,0   
+KEYOPT,4,12,5   
+KEYOPT,4,2,0
+KEYOPT,3,5,0
+! Generate the target surface   
+ASEL,S,,,58 
+CM,_TARGET,AREA 
+TYPE,3  
+NSLA,S,1
+ESLN,S,0
+ESLL,U  
+ESEL,U,ENAME,,188,189   
+NSLE,A,CT2  
+ESURF   
+CMSEL,S,_ELEMCM 
+! Generate the contact surface  
+ASEL,S,,,1  
+CM,_CONTACT,AREA
+TYPE,4  
+NSLA,S,1
+ESLN,S,0
+NSLE,A,CT2 ! CZMESH patch (fsk qt-40109 8/2008) 
+ESURF   
+ALLSEL  
+ESEL,ALL
+ESEL,S,TYPE,,3  
+ESEL,A,TYPE,,4  
+ESEL,R,REAL,,3  
+/PSYMB,ESYS,1   
+/PNUM,TYPE,1
+/NUM,1  
+EPLOT   
+ESEL,ALL
+ESEL,S,TYPE,,3  
+ESEL,A,TYPE,,4  
+ESEL,R,REAL,,3  
+CMSEL,A,_NODECM 
+CMDEL,_NODECM   
+CMSEL,A,_ELEMCM 
+CMDEL,_ELEMCM   
+CMSEL,S,_KPCM   
+CMDEL,_KPCM 
+CMSEL,S,_LINECM 
+CMDEL,_LINECM   
+CMSEL,S,_AREACM 
+CMDEL,_AREACM   
+CMSEL,S,_VOLUCM 
+CMDEL,_VOLUCM   
+/GRES,cwz,gsav  
+CMDEL,_TARGET   
+CMDEL,_CONTACT  
+/COM, CONTACT PAIR CREATION - END   
+/VIEW,  1,  0.532465354367E-01, -0.967598679177    ,  0.246814915513
+/ANG,   1,  -5.25681513987  
+/REPLO  
+!*  
+!*  
+/COM, CONTACT PAIR CREATION - START 
+CM,_NODECM,NODE 
+CM,_ELEMCM,ELEM 
+CM,_KPCM,KP 
+CM,_LINECM,LINE 
+CM,_AREACM,AREA 
+CM,_VOLUCM,VOLU 
+/GSAV,cwz,gsav,,temp
+MP,MU,1,0   
+MAT,1   
+MP,EMIS,1,7.88860905221e-031
+R,4 
+REAL,4  
+ET,5,170
+ET,6,174
+R,4,,,1.0,0.1,0,
+RMORE,,,1.0E20,0.0,1.0, 
+RMORE,0.0,0,1.0,,1.0,0.5
+RMORE,0,1.0,1.0,0.0,,1.0
+KEYOPT,6,4,0
+KEYOPT,6,5,0
+KEYOPT,6,7,0
+KEYOPT,6,8,0
+KEYOPT,6,9,0
+KEYOPT,6,10,2   
+KEYOPT,6,11,0   
+KEYOPT,6,12,5   
+KEYOPT,6,2,0
+KEYOPT,5,5,0
+! Generate the target surface   
+ASEL,S,,,47 
+CM,_TARGET,AREA 
+TYPE,5  
+NSLA,S,1
+ESLN,S,0
+ESLL,U  
+ESEL,U,ENAME,,188,189   
+NSLE,A,CT2  
+ESURF   
+CMSEL,S,_ELEMCM 
+! Generate the contact surface  
+ASEL,S,,,52 
+CM,_CONTACT,AREA
+TYPE,6  
+NSLA,S,1
+ESLN,S,0
+NSLE,A,CT2 ! CZMESH patch (fsk qt-40109 8/2008) 
+ESURF   
+ALLSEL  
+ESEL,ALL
+ESEL,S,TYPE,,5  
+ESEL,A,TYPE,,6  
+ESEL,R,REAL,,4  
+/PSYMB,ESYS,1   
+/PNUM,TYPE,1
+/NUM,1  
+EPLOT   
+ESEL,ALL
+ESEL,S,TYPE,,5  
+ESEL,A,TYPE,,6  
+ESEL,R,REAL,,4  
+CMSEL,A,_NODECM 
+CMDEL,_NODECM   
+CMSEL,A,_ELEMCM 
+CMDEL,_ELEMCM   
+CMSEL,S,_KPCM   
+CMDEL,_KPCM 
+CMSEL,S,_LINECM 
+CMDEL,_LINECM   
+CMSEL,S,_AREACM 
+CMDEL,_AREACM   
+CMSEL,S,_VOLUCM 
+CMDEL,_VOLUCM   
+/GRES,cwz,gsav  
+CMDEL,_TARGET   
+CMDEL,_CONTACT  
+/COM, CONTACT PAIR CREATION - END   
+
+
+WPAVE,0,0,0 
+CSYS,0
+WPAVE,0,0,0 
+CSYS,0 
+
+*do,i,1,10,1
+	WPoff,0,0,z%i% 
+	csys,4
+		*if,val(i,1,1),eq,1,then    
+			NSEL,S,LOC,z,0,0.001  
+			ESLN,s,1
+			secn, %i%
+			EREINF
+		*endif			
+*enddo 
+
+
+ALLSEL,ALL  
+/REPLO  
+FINISH  
+/SOL
+!*  
+ANTYPE,0
+FLST,2,1,5,ORDE,1   
+FITEM,2,53  
+/GO 
+!*  
+SFA,P51X,1,PRES,3000000
+
+
+/REPLO  
+FLST,2,1,5,ORDE,1   
+FITEM,2,1   
+!*  
+/GO 
+DA,P51X,ALL,
+
+/STATUS,SOLU
+SOLVE 
+
+
+
+/VIEW,  1, -0.248130995936    , -0.517350149567    ,  0.819011496622
+/ANG,   1,   4.19457480231  
+/REPLO  
+/VIEW,  1, -0.191139861579    , -0.873588252261    ,  0.447559067416
+/ANG,   1,   9.24495444722  
+/REPLO  
+/VIEW,  1, -0.456842485369    , -0.888158887761    ,  0.496863527836E-01
+/ANG,   1,   63.7967907260  
+/REPLO 
+
+
+
+/SHOW,jpeg
+/POST1 
+/SHOW,jpeg
+/EFACET,1 
+PLNSOL, U,SUM, 0,1.0
+*get, napex,plnsol,0,max
+*get, napen,plnsol,0,min 
+*CFOPEN, NAPES,dat
+*VWRITE, napex, napen
+%G %/ %G
+*CFCLOSE
+/SHOW,PNG,,0
+PNGR,COMP,1,-1 
+PNGR,ORIENT,HORIZ 
+PNGR,COLOR,2
+PNGR,TMOD,1 
+/SHOW,jpeg 
+!* 
+/REPLOT
+/SHOW,jpeg 
+/SHOW,CLOSE 
+/SHOW,jpeg
+/DEVICE,VECTOR,0
+/SHOW,jpeg
+
+!!!!!!!!
+/POST1 
+/ MENU , on
+/EFACET,1
+PLNSOL, S,EQV, 0,1.0
+*get, napex,plnsol,0,max
+*get, napen,plnsol,0,min 
+*CFOPEN, NAPES,dat
+*VWRITE, napex, napen
+%G %/ %G
+*CFCLOSE
+/SHOW,PNG,,0
+PNGR,COMP,1,-1 
+PNGR,ORIENT,HORIZ 
+PNGR,COLOR,2
+PNGR,TMOD,1 
+/GFILE,800, 
+!* 
+/REPLOT
+/ MENU , on 
+/SHOW,CLOSE 
+/DEVICE,VECTOR,0
+
+!!!!
+/POST1 
+/ MENU , grph
+/EFACET,1
+PLESOL, S,EQV, 0,1.0
+*get, napex,plnsol,0,max
+*get, napen,plnsol,0,min 
+*CFOPEN, NAPES,dat
+*VWRITE, napex, napen
+%G %/ %G
+*CFCLOSE
+/SHOW,PNG,,0
+PNGR,COMP,1,-1 
+PNGR,ORIENT,HORIZ 
+PNGR,COLOR,2
+PNGR,TMOD,1 
+/GFILE,800, 
+!* 
+/REPLOT 
+/ MENU , grph
+/SHOW,CLOSE 
+/DEVICE,VECTOR,0
+SAVE
+
+
+
+
+/POST1 
+/SHOW,VRML  
+/SHOW,jpeg
+/EFACET,1 
+PLNSOL, U,SUM, 0,1.0
+/SHOW,VRML  
+!*  
+/REPLOT 
+/SHOW,TERM  
+/DEVICE,VECTOR,0
+*get, napex,plnsol,0,max
+*get, napen,plnsol,0,min 
+*CFOPEN, NAPES1,txt
+*VWRITE, napex, napen
+%G %/ %G
+*CFCLOSE
+/SHOW,TERM  
+/SHOW,CLOSE 
+
+/POST1 
+/SHOW,VRML  
+/SHOW,jpeg
+/EFACET,1 
+PLNSOL, S,EQV, 0,1.0
+/SHOW,VRML  
+!*  
+/REPLOT 
+/SHOW,TERM  
+/DEVICE,VECTOR,0
+*get, napex,plnsol,0,max
+*get, napen,plnsol,0,min 
+*CFOPEN, NAPES2,txt
+*VWRITE, napex, napen
+%G %/ %G
+*CFCLOSE
+/SHOW,TERM  
+/SHOW,CLOSE 
+
+
+/POST1 
+/SHOW,VRML  
+/SHOW,jpeg
+/EFACET,1 
+PLESOL, S,EQV, 0,1.0
+/SHOW,VRML  
+!*  
+/REPLOT 
+/SHOW,TERM  
+/DEVICE,VECTOR,0
+*get, napex,plnsol,0,max
+*get, napen,plnsol,0,min 
+*CFOPEN, NAPES3,txt
+*VWRITE, napex, napen
+%G %/ %G
+*CFCLOSE
+/SHOW,TERM  
+/SHOW,CLOSE 
+
+
+
+
+
+esel,s,type,,1
+/trlcy,elem,0.9 
+esel,all
+/eshape,1    
+eplot
+/dev,vect,1
+esel,s,type,,2
+/psymb,layr,-1
+eplot
+

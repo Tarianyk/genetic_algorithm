@@ -1,0 +1,9 @@
+WPoff,0,0,z%i%
+csys,4
+*if,val(i,1,1),eq,1,then
+NSEL,S,LOC,z,0,0.001
+ESLN,s,1
+secn, %i%
+EREINF
+*endif
+*enddo

@@ -1,0 +1,2677 @@
+
+ ANSYS Structural                                  
+
+ *** WARNING ***                         CP =       0.531   TIME= 17:57:34
+ The requested number of shared-memory processors (4) exceeds the number 
+ of physical processors that are available (3).  As the use of virtual   
+ processors is not recommended, the number of processors used will be    
+ 3.                                                                      
+
+
+ *------------------------------------------------------------------*
+ |                                                                  |
+ |   W E L C O M E   T O   T H E   A N S Y S (R)  P R O G R A M     |
+ |                                                                  |
+ *------------------------------------------------------------------*
+
+
+
+
+ ***************************************************************
+ *                  ANSYS 14.5 LEGAL NOTICES                   *
+ ***************************************************************
+ *                                                             *
+ * Copyright 2013 SAS IP, Inc.  All rights reserved.           *
+ * Unauthorized use, distribution or duplication is            *
+ * prohibited.                                                 *
+ *                                                             *
+ * Ansys is a registered trademark of ANSYS, Inc. or its       *
+ * subsidiaries in the United States or other countries.       *
+ * See the ANSYS, Inc. online documentation or the ANSYS, Inc. *
+ * documentation CD or online help for the complete Legal      *
+ * Notice.                                                     *
+ *                                                             *
+ ***************************************************************
+ *                                                             *
+ * THIS ANSYS SOFTWARE PRODUCT AND PROGRAM DOCUMENTATION       *
+ * INCLUDE TRADE SECRETS AND CONFIDENTIAL AND PROPRIETARY      *
+ * PRODUCTS OF ANSYS, INC., ITS SUBSIDIARIES, OR LICENSORS.    *
+ * The software products and documentation are furnished by    *
+ * ANSYS, Inc. or its subsidiaries under a software license    *
+ * agreement that contains provisions concerning               *
+ * non-disclosure, copying, length and nature of use,          *
+ * compliance with exporting laws, warranties, disclaimers,    *
+ * limitations of liability, and remedies, and other           *
+ * provisions.  The software products and documentation may be *
+ * used, disclosed, transferred, or copied only in accordance  *
+ * with the terms and conditions of that software license      *
+ * agreement.                                                  *
+ *                                                             *
+ * ANSYS, Inc. is a UL registered                              *
+ * ISO 9001:2008 company.                                      *
+ *                                                             *
+ ***************************************************************
+ *                                                             *
+ * This product is subject to U.S. laws governing export and   *
+ * re-export.                                                  *
+ *                                                             *
+ * For U.S. Government users, except as specifically granted   *
+ * by the ANSYS, Inc. software license agreement, the use,     *
+ * duplication, or disclosure by the United States Government  *
+ * is subject to restrictions stated in the ANSYS, Inc.        *
+ * software license agreement and FAR 12.212 (for non-DOD      *
+ * licenses).                                                  *
+ *                                                             *
+ ***************************************************************
+
+
+
+          *****  ANSYS COMMAND LINE ARGUMENTS  *****
+  INITIAL JOBNAME              = ansys_temp                                                                                                                                                                                                                                              
+  BATCH MODE REQUESTED (-b)    = LIST
+  INPUT FILE COPY MODE (-c)    = COPY
+     3 PARALLEL CPUS REQUESTED
+  MEMORY REQUESTED (MB)        = 5000        
+  START-UP FILE MODE           = READ  
+  STOP FILE MODE               = READ  
+  LANGUAGE                     = en-us               
+  INITIAL DIRECTORY = c:\Java\workspace\repo_git\server_side_installer\ansys\temp_folder
+
+ 00115060          VERSION=WINDOWS x64     RELEASE= 14.5.7   UP20130316
+ CURRENT JOBNAME=ansys_temp  17:57:35  SEP 21, 2016 CP=      1.656
+
+     1  ﻿/units,si
+     2  *afun,deg   
+     3  s=2 
+     4  ro1=7850
+     5  ro2=2500
+     6  ro3=7000
+     7  ro5=1100
+     8  E1=2e11 
+     9  E2=1.7e6
+    10  E3=3e10 
+    11  E5=10.0e8   
+    12  nu1=0.3 
+    13  nu2=0.48
+    14  nu3=0.2 
+    15  nu5=0.36
+    16  E11=2   
+    17  E22=3   
+    18  E33=4   
+    19  nu11=5  
+    20  nu22=3  
+    21  nu33=1  
+    22  rg1=3   
+    23  rg2=4   
+    24  rg3=5   
+    25  ro=6
+    26  p=1 
+    27      
+    28  z1=0.001
+    29      
+    30  *do,i,2,10,1
+    31  	   z%i%=0.003  
+    32  *enddo  
+    33      
+    34      
+    35  m1=.003 
+    36  m2=.003 
+    37  m3=.003 
+    38  m4=.003 
+    39  m5=.003 
+    40  m6=.003 
+    41  m7=.003 
+    42  m8=.003 
+    43  m9=.003 
+    44  m10=.003
+    45  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+    46  !!!!!!!!!!all base of data!!!!!!!!!!!!!!!!!!!!! 
+    47  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+    48  a=0.3   
+    49  b=0.3   
+    50  h=0 
+    51  counter=10  
+    52  setka= 8
+    53  l=2 
+    54  z=30
+    55  q=10
+    56  f=20
+    57  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+    58  !!!!!!!!!searching top layer!!! 
+    59  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+    60  m0=0
+    61      
+    62  	*do,i,1,counter,1  
+    63  		m0=m0+m%i%
+    64  	*enddo 
+    65      
+    66  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  
+    67  !!!!!!!!!!!!entrance to modelling!!!!!!!!!!!!!!!
+    68  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  
+    69  /prep7  
+    70      
+    71  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  
+    72  !!!isotropic properties !!!!!!!!!!!!!!!!!!!!!!!!!!  
+    73  ET,1,185
+    74  MPTEMP,,,,,,,,  
+    75  MPTEMP,1,0  
+    76  MPDATA,EX,1,,E1 
+    77  MPDATA,PRXY,1,,nu1  
+    78  MPTEMP,,,,,,,,  
+    79  MPTEMP,1,0  
+    80  MPDATA,DENS,1,,ro1  
+    81  MPTEMP,,,,,,,,  
+    82  MPTEMP,1,0  
+    83  MPDATA,EX,2,,E2 
+    84  MPDATA,PRXY,2,,nu2  
+    85  MPTEMP,,,,,,,,  
+    86  MPTEMP,1,0  
+    87  MPDATA,DENS,2,,ro2  
+    88  MPTEMP,,,,,,,,  
+    89  MPTEMP,1,0  
+    90  MPDATA,EX,3,,E3 
+    91  MPDATA,PRXY,3,,nu3  
+    92  MPTEMP,,,,,,,,  
+    93  MPTEMP,1,0  
+    94  MPDATA,DENS,3,,ro3  
+    95      
+    96  MPTEMP,,,,,,,,  
+    97  MPTEMP,1,0  
+    98  MPDATA,EX,5,,E5 
+    99  MPDATA,PRXY,5,,nu5  
+   100  MPTEMP,,,,,,,,  
+   101  MPTEMP,1,0  
+   102  MPDATA,DENS,5,,ro5  
+   103      
+   104  sect,1,REINF,SMEAR,try1 
+   105  secd,5 ,0.005 ,1.08 ,,45.0,ELEF,1,0.5   
+   106  secn, 1 
+   107      
+   108  sect,2,REINF,SMEAR,try2 
+   109  secd,5 ,0.005 ,1.08 ,,45.0,ELEF,1,0.5   
+   110  secn, 2 
+   111      
+   112  sect,3,REINF,SMEAR,try3 
+   113  secd,5 ,0.005 ,1.08 ,,45.0,ELEF,1,0.5   
+   114  secn, 3 
+   115      
+   116  sect,4,REINF,SMEAR,try4 
+   117  secd,5 ,0.005 ,1.08 ,,45.0,ELEF,1,0.5   
+   118  secn, 4 
+   119      
+   120  sect,5,REINF,SMEAR,try5 
+   121  secd,5 ,0.005 ,1.08 ,,45.0,ELEF,1,0.5   
+   122  secn, 5 
+   123      
+   124  sect,6,REINF,SMEAR,try6 
+   125  secd,5 ,0.005 ,1.08 ,,45.0,ELEF,1,0.5   
+   126  secn, 6 
+   127      
+   128  sect,7,REINF,SMEAR,try7 
+   129  secd,5 ,0.005 ,1.08 ,,45.0,ELEF,1,0.5   
+   130  secn, 7 
+   131      
+   132  sect,8,REINF,SMEAR,try8 
+   133  secd,5 ,0.005 ,1.08 ,,45.0,ELEF,1,0.5   
+   134  secn, 8 
+   135      
+   136  sect,9,REINF,SMEAR,try9 
+   137  secd,5 ,0.005 ,1.08 ,,45.0,ELEF,1,0.5   
+   138  secn, 9 
+   139      
+   140  sect,10,REINF,SMEAR,try10   
+   141  secd,5 ,0.005 ,1.08 ,,45.0,ELEF,1,0.5   
+   142  secn, 10
+   143      
+   144      
+   145  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  
+   146  !!!entrance to build!!!!!!!!!!!!!!! 
+   147  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  
+   148  k,1,0,0,h  	$$  Q1=KP(0,0,h)
+   149  k,2,b,0,h   $$  Q2=KP(b,0,h)
+   150  k,3,b,b,h 	$$  Q3=KP(b,b,h) 
+   151  k,4,0,b,h   $$  Q4=KP(0,b,h)
+   152  L,Q1,Q2 
+   153  L,Q2,Q3 
+   154  L,Q3,Q4 
+   155  L,Q4,Q1 
+   156  al,all  
+   157  cm,area1,area   
+   158  	*do,i,1,counter,1  
+   159  		cmsel,s,area%i% !select every area of middle layer
+   160  		*get,buf%i%,area,0,num,min  ! get the value   
+   161  		VOFFST,buf%i%,m%i%, , !!pull the surface  
+   162  		wpoff,0,0,m%i% !! select system coordinate
+   163  		CSYS,4         ! select system coordinate 
+   164  		cm,volume%i%,volu !!select the volume 
+   165  		ASEL,S,LOC,Z,0 !!!select the area with some properties
+   166  		cm,area%i+1%,area !!get a name this area  
+   167  cm,slay,area
+   168  VSEL,U, , ,All  
+   169  ASEL,U, , ,All  
+   170  	*enddo 
+   171  nummrg,all, , , ,low
+   172      
+   173  *dim,val,array,10,1,1,,,
+   174  val(1)=1,1,1,0,1,1,0,0,0,1  
+   175      
+   176  *do,i,1,counter,p   
+   177  				cmsel,s,volume%i%   
+   178  				VATT,     2, ,   1,       0 
+   179  				ASLV,S  
+   180  				LSLA,S  
+   181  				LSEL,U,LOC,y,0  
+   182  				LSEL,U,LOC,Y,b/setka
+   183  				LESIZE,All,b/setka, , , , , , ,1
+   184  				LSLA,S  
+   185  				LSEL,U,LOC,x,0  
+   186  				LSEL,U,LOC,x,b/setka
+   187  				LESIZE,All,b/setka, , , , , , ,1
+   188  				LSLA,S  
+   189  				LSEL,r,LOC,Y,b/setka
+   190  				LSEL,a,LOC,Y,0  
+   191  				LSEL,R,LOC,x,0  
+   192  				LESIZE,All,m%i%/3, , , , , , ,1 
+   193  				VMESH,volume%i% 
+   194  *enddo  
+   195      
+   196      
+   197      
+   198      
+   199  CSYS,0  
+   200  WPAVE,0,0,m0
+   201  CSYS,4  
+   202  asel,u,,,all
+   203  lsel,U,,,all
+   204  vsel,U,,,all
+   205  k,201,0,0,0     $$ Q9=KP(0,0,h) 
+   206  k,202,b/2,0,0   $$ Q10=KP(b/2,0,h)  
+   207  k,203,b/2,b/2,0 $$ Q11=KP(b/2,b/2,h)
+   208  k,204,0,b/2,0   $$ Q12=KP(0,b/2,h)  
+   209  l,Q9,Q10
+   210  l,Q10,Q11   
+   211  l,Q11,Q12   
+   212  l,Q12,Q9
+   213  al,all  
+   214  cm,toplayer,area
+   215  *get,na1,area,0,num,min 
+   216  voffst,na1,b/6  
+   217  ASEL,S,LOC,Z,b/20   
+   218  cm,pressure,area
+   219  cm,top,volu 
+   220  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  
+   221  !!!!!!!!!!?????????? ??????? ????!!!!!!!!!!!!!  
+   222  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  
+   223  asel,u,,,all
+   224  lsel,U,,,all
+   225  vsel,U,,,all
+   226  CSYS,0  
+   227  WPAVE,0,0,0 
+   228  CSYS,4  
+   229  asel,u,,,all
+   230  lsel,U,,,all
+   231  vsel,U,,,all
+   232  k,105,0,0,0      $$  Q5=KP(0,0,0)   
+   233  k,106,b*2,0,0    $$  Q6=KP(b*2,0,0) 
+   234  k,107,b*2,b*2,0  $$  Q7=KP(b*2,b*2,0)   
+   235  k,108,0,b*2,0    $$  Q8=KP(0,b*2,0) 
+   236  l,Q5,Q6 
+   237  l,Q6,Q7 
+   238  l,Q7,Q8 
+   239  l,Q8,Q5 
+   240  al,all  
+   241  *get,qw,area,0,num,max  
+   242  cm,cont1,area   
+   243  voffst,qw,-b/5  
+   244  ASEL,S,LOC,Z,-b/5   
+   245  cm,dof,area 
+   246  cm,bot,volu 
+   247  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  
+   248  !!!????????? ?? ?? ? ??????? ??????????!!!!!!!  
+   249  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  
+   250      
+   251  !!!!!!!!!!!!!??????!!!!!!!!!!!!!!!!!!!!!!!!!!!  
+   252  cmsel,s,bot 
+   253  VATT,3,,1,0 
+   254  ASLV,S  
+   255  LSLA,S  
+   256  LSEL,U,LOC,y,0  
+   257  LSEL,U,LOC,Y,b/f
+   258  LESIZE,All,b/f, , , , , , ,1
+   259  LSLA,S  
+   260  LSEL,U,LOC,x,0  
+   261  LSEL,U,LOC,x,b/f
+   262  LESIZE,All,b/f, , , , , , ,1
+   263  LSLA,S  
+   264  LSEL,r,LOC,Y,b/f
+   265  LSEL,a,LOC,Y,0  
+   266  LSEL,R,LOC,x,0  
+   267  LESIZE,All,b/f, , , , , , ,1
+   268  VMESH,bot   
+   269  ALLSEL,ALL  
+   270  !!!!!!!!!!???????!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+   271  	   
+   272      
+   273  !!!!!!!!!!!!!!!!???????!!!!!!!!!!!!!!!!!!!!!!!!!
+   274  ALLSEL,ALL  
+   275  cmsel,s,top 
+   276  VATT,       1, ,   1,       0   
+   277  ASLV,S  
+   278  LSLA,S  
+   279  LSEL,U,LOC,y,0  
+   280  LSEL,U,LOC,Y,b/3
+   281  LESIZE,All,b/z, , , , , , ,1
+   282  LSLA,S  
+   283  LSEL,U,LOC,x,0  
+   284  LSEL,U,LOC,x,b/3
+   285  LESIZE,All,b/z, , , , , , ,1
+   286  LSLA,S  
+   287  LSEL,r,LOC,Y,b/3
+   288  LSEL,a,LOC,Y,0  
+   289  LSEL,R,LOC,x,0  
+   290  LESIZE,All,b/3/5, , , , , , ,1  
+   291  VMESH,top   
+   292  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  
+   293  !!!!!!!??????? ??????? ?????????!!!!!!!!!!!!!!  
+   294  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  
+   295  ASEL,S,LOC,X,   
+   296  ASEL,a,LOC,y,   
+   297  DA,all,SYMM 
+   298  ALLSEL,ALL  
+   299      
+   300      
+   301  /COM, CONTACT PAIR CREATION - START 
+   302  CM,_NODECM,NODE 
+   303  CM,_ELEMCM,ELEM 
+   304  CM,_KPCM,KP 
+   305  CM,_LINECM,LINE 
+   306  CM,_AREACM,AREA 
+   307  CM,_VOLUCM,VOLU 
+   308  /GSAV,cwz,gsav,,temp
+   309  MP,MU,1,
+   310  MAT,1   
+   311  MP,EMIS,1,7.88860905221e-031
+   312  R,3 
+   313  REAL,3  
+   314  ET,3,170
+   315  ET,4,174
+   316  R,3,,,1.0,0.1,0,
+   317  RMORE,,,1.0E20,0.0,1.0, 
+   318  RMORE,0.0,0,1.0,,1.0,0.5
+   319  RMORE,0,1.0,1.0,0.0,,1.0
+   320  KEYOPT,4,4,0
+   321  KEYOPT,4,5,0
+   322  KEYOPT,4,7,0
+   323  KEYOPT,4,8,0
+   324  KEYOPT,4,9,0
+   325  KEYOPT,4,10,2   
+   326  KEYOPT,4,11,0   
+   327  KEYOPT,4,12,5   
+   328  KEYOPT,4,2,0
+   329  KEYOPT,3,5,0
+   330  ! Generate the target surface   
+   331  ASEL,S,,,58 
+   332  CM,_TARGET,AREA 
+   333  TYPE,3  
+   334  NSLA,S,1
+   335  ESLN,S,0
+   336  ESLL,U  
+   337  ESEL,U,ENAME,,188,189   
+   338  NSLE,A,CT2  
+   339  ESURF   
+   340  CMSEL,S,_ELEMCM 
+   341  ! Generate the contact surface  
+   342  ASEL,S,,,1  
+   343  CM,_CONTACT,AREA
+   344  TYPE,4  
+   345  NSLA,S,1
+   346  ESLN,S,0
+   347  NSLE,A,CT2 ! CZMESH patch (fsk qt-40109 8/2008) 
+   348  ESURF   
+   349  ALLSEL  
+   350  ESEL,ALL
+   351  ESEL,S,TYPE,,3  
+   352  ESEL,A,TYPE,,4  
+   353  ESEL,R,REAL,,3  
+   354  /PSYMB,ESYS,1   
+   355  /PNUM,TYPE,1
+   356  /NUM,1  
+   357  EPLOT   
+   358  ESEL,ALL
+   359  ESEL,S,TYPE,,3  
+   360  ESEL,A,TYPE,,4  
+   361  ESEL,R,REAL,,3  
+   362  CMSEL,A,_NODECM 
+   363  CMDEL,_NODECM   
+   364  CMSEL,A,_ELEMCM 
+   365  CMDEL,_ELEMCM   
+   366  CMSEL,S,_KPCM   
+   367  CMDEL,_KPCM 
+   368  CMSEL,S,_LINECM 
+   369  CMDEL,_LINECM   
+   370  CMSEL,S,_AREACM 
+   371  CMDEL,_AREACM   
+   372  CMSEL,S,_VOLUCM 
+   373  CMDEL,_VOLUCM   
+   374  /GRES,cwz,gsav  
+   375  CMDEL,_TARGET   
+   376  CMDEL,_CONTACT  
+   377  /COM, CONTACT PAIR CREATION - END   
+   378  /VIEW,  1,  0.532465354367E-01, -0.967598679177    ,  0.246814915513
+   379  /ANG,   1,  -5.25681513987  
+   380  /REPLO  
+   381  !*  
+   382  !*  
+   383  /COM, CONTACT PAIR CREATION - START 
+   384  CM,_NODECM,NODE 
+   385  CM,_ELEMCM,ELEM 
+   386  CM,_KPCM,KP 
+   387  CM,_LINECM,LINE 
+   388  CM,_AREACM,AREA 
+   389  CM,_VOLUCM,VOLU 
+   390  /GSAV,cwz,gsav,,temp
+   391  MP,MU,1,0   
+   392  MAT,1   
+   393  MP,EMIS,1,7.88860905221e-031
+   394  R,4 
+   395  REAL,4  
+   396  ET,5,170
+   397  ET,6,174
+   398  R,4,,,1.0,0.1,0,
+   399  RMORE,,,1.0E20,0.0,1.0, 
+   400  RMORE,0.0,0,1.0,,1.0,0.5
+   401  RMORE,0,1.0,1.0,0.0,,1.0
+   402  KEYOPT,6,4,0
+   403  KEYOPT,6,5,0
+   404  KEYOPT,6,7,0
+   405  KEYOPT,6,8,0
+   406  KEYOPT,6,9,0
+   407  KEYOPT,6,10,2   
+   408  KEYOPT,6,11,0   
+   409  KEYOPT,6,12,5   
+   410  KEYOPT,6,2,0
+   411  KEYOPT,5,5,0
+   412  ! Generate the target surface   
+   413  ASEL,S,,,47 
+   414  CM,_TARGET,AREA 
+   415  TYPE,5  
+   416  NSLA,S,1
+   417  ESLN,S,0
+   418  ESLL,U  
+   419  ESEL,U,ENAME,,188,189   
+   420  NSLE,A,CT2  
+   421  ESURF   
+   422  CMSEL,S,_ELEMCM 
+   423  ! Generate the contact surface  
+   424  ASEL,S,,,52 
+   425  CM,_CONTACT,AREA
+   426  TYPE,6  
+   427  NSLA,S,1
+   428  ESLN,S,0
+   429  NSLE,A,CT2 ! CZMESH patch (fsk qt-40109 8/2008) 
+   430  ESURF   
+   431  ALLSEL  
+   432  ESEL,ALL
+   433  ESEL,S,TYPE,,5  
+   434  ESEL,A,TYPE,,6  
+   435  ESEL,R,REAL,,4  
+   436  /PSYMB,ESYS,1   
+   437  /PNUM,TYPE,1
+   438  /NUM,1  
+   439  EPLOT   
+   440  ESEL,ALL
+   441  ESEL,S,TYPE,,5  
+   442  ESEL,A,TYPE,,6  
+   443  ESEL,R,REAL,,4  
+   444  CMSEL,A,_NODECM 
+   445  CMDEL,_NODECM   
+   446  CMSEL,A,_ELEMCM 
+   447  CMDEL,_ELEMCM   
+   448  CMSEL,S,_KPCM   
+   449  CMDEL,_KPCM 
+   450  CMSEL,S,_LINECM 
+   451  CMDEL,_LINECM   
+   452  CMSEL,S,_AREACM 
+   453  CMDEL,_AREACM   
+   454  CMSEL,S,_VOLUCM 
+   455  CMDEL,_VOLUCM   
+   456  /GRES,cwz,gsav  
+   457  CMDEL,_TARGET   
+   458  CMDEL,_CONTACT  
+   459  /COM, CONTACT PAIR CREATION - END   
+   460      
+   461      
+   462  WPAVE,0,0,0 
+   463  CSYS,0  
+   464  WPAVE,0,0,0 
+   465  CSYS,0  
+   466      
+   467  *do,i,1,10,1
+   468  	WPoff,0,0,z%i% 
+   469  	csys,4 
+   470  		*if,val(i,1,1),eq,1,then  
+   471  			NSEL,S,LOC,z,0,0.001 
+   472  			ESLN,s,1 
+   473  			secn, %i%
+   474  			EREINF   
+   475  		*endif			 
+   476  *enddo  
+   477      
+   478      
+   479  ALLSEL,ALL  
+   480  /REPLO  
+   481  FINISH  
+   482  /SOL
+   483  !*  
+   484  ANTYPE,0
+   485  FLST,2,1,5,ORDE,1   
+   486  FITEM,2,53  
+   487  /GO 
+   488  !*  
+   489  SFA,P51X,1,PRES,3000000 
+   490      
+   491      
+   492  /REPLO  
+   493  FLST,2,1,5,ORDE,1   
+   494  FITEM,2,1   
+   495  !*  
+   496  /GO 
+   497  DA,P51X,ALL,
+   498      
+   499  /STATUS,SOLU
+   500  SOLVE   
+   501      
+   502      
+   503      
+   504  /VIEW,  1, -0.248130995936    , -0.517350149567    ,  0.819011496622
+   505  /ANG,   1,   4.19457480231  
+   506  /REPLO  
+   507  /VIEW,  1, -0.191139861579    , -0.873588252261    ,  0.447559067416
+   508  /ANG,   1,   9.24495444722  
+   509  /REPLO  
+   510  /VIEW,  1, -0.456842485369    , -0.888158887761    ,  0.496863527836E-01
+   511  /ANG,   1,   63.7967907260  
+   512  /REPLO  
+   513      
+   514      
+   515      
+   516  /SHOW,jpeg  
+   517  /POST1  
+   518  /SHOW,jpeg  
+   519  /EFACET,1   
+   520  PLNSOL, U,SUM, 0,1.0
+   521  *get, napex,plnsol,0,max
+   522  *get, napen,plnsol,0,min
+   523  *CFOPEN, NAPES,dat  
+   524  *VWRITE, napex, napen   
+   525  %G %/ %G
+   526  *CFCLOSE
+   527  /SHOW,PNG,,0
+   528  PNGR,COMP,1,-1  
+   529  PNGR,ORIENT,HORIZ   
+   530  PNGR,COLOR,2
+   531  PNGR,TMOD,1 
+   532  /SHOW,jpeg  
+   533  !*  
+   534  /REPLOT 
+   535  /SHOW,jpeg  
+   536  /SHOW,CLOSE 
+   537  /SHOW,jpeg  
+   538  /DEVICE,VECTOR,0
+   539  /SHOW,jpeg  
+   540      
+   541  !!!!!!!!
+   542  /POST1  
+   543  / MENU , on 
+   544  /EFACET,1   
+   545  PLNSOL, S,EQV, 0,1.0
+   546  *get, napex,plnsol,0,max
+   547  *get, napen,plnsol,0,min
+   548  *CFOPEN, NAPES,dat  
+   549  *VWRITE, napex, napen   
+   550  %G %/ %G
+   551  *CFCLOSE
+   552  /SHOW,PNG,,0
+   553  PNGR,COMP,1,-1  
+   554  PNGR,ORIENT,HORIZ   
+   555  PNGR,COLOR,2
+   556  PNGR,TMOD,1 
+   557  /GFILE,800, 
+   558  !*  
+   559  /REPLOT 
+   560  / MENU , on 
+   561  /SHOW,CLOSE 
+   562  /DEVICE,VECTOR,0
+   563      
+   564  !!!!
+   565  /POST1  
+   566  / MENU , grph   
+   567  /EFACET,1   
+   568  PLESOL, S,EQV, 0,1.0
+   569  *get, napex,plnsol,0,max
+   570  *get, napen,plnsol,0,min
+   571  *CFOPEN, NAPES,dat  
+   572  *VWRITE, napex, napen   
+   573  %G %/ %G
+   574  *CFCLOSE
+   575  /SHOW,PNG,,0
+   576  PNGR,COMP,1,-1  
+   577  PNGR,ORIENT,HORIZ   
+   578  PNGR,COLOR,2
+   579  PNGR,TMOD,1 
+   580  /GFILE,800, 
+   581  !*  
+   582  /REPLOT 
+   583  / MENU , grph   
+   584  /SHOW,CLOSE 
+   585  /DEVICE,VECTOR,0
+   586  SAVE
+   587      
+   588      
+   589      
+   590      
+   591  /POST1  
+   592  /SHOW,VRML  
+   593  /SHOW,jpeg  
+   594  /EFACET,1   
+   595  PLNSOL, U,SUM, 0,1.0
+   596  /SHOW,VRML  
+   597  !*  
+   598  /REPLOT 
+   599  /SHOW,TERM  
+   600  /DEVICE,VECTOR,0
+   601  *get, napex,plnsol,0,max
+   602  *get, napen,plnsol,0,min
+   603  *CFOPEN, NAPES1,txt 
+   604  *VWRITE, napex, napen   
+   605  %G %/ %G
+   606  *CFCLOSE
+   607  /SHOW,TERM  
+   608  /SHOW,CLOSE 
+   609      
+   610  /POST1  
+   611  /SHOW,VRML  
+   612  /SHOW,jpeg  
+   613  /EFACET,1   
+   614  PLNSOL, S,EQV, 0,1.0
+   615  /SHOW,VRML  
+   616  !*  
+   617  /REPLOT 
+   618  /SHOW,TERM  
+   619  /DEVICE,VECTOR,0
+   620  *get, napex,plnsol,0,max
+   621  *get, napen,plnsol,0,min
+   622  *CFOPEN, NAPES2,txt 
+   623  *VWRITE, napex, napen   
+   624  %G %/ %G
+   625  *CFCLOSE
+   626  /SHOW,TERM  
+   627  /SHOW,CLOSE 
+   628      
+   629      
+   630  /POST1  
+   631  /SHOW,VRML  
+   632  /SHOW,jpeg  
+   633  /EFACET,1   
+   634  PLESOL, S,EQV, 0,1.0
+   635  /SHOW,VRML  
+   636  !*  
+   637  /REPLOT 
+   638  /SHOW,TERM  
+   639  /DEVICE,VECTOR,0
+   640  *get, napex,plnsol,0,max
+   641  *get, napen,plnsol,0,min
+   642  *CFOPEN, NAPES3,txt 
+   643  *VWRITE, napex, napen   
+   644  %G %/ %G
+   645  *CFCLOSE
+   646  /SHOW,TERM  
+   647  /SHOW,CLOSE 
+   648      
+   649      
+   650      
+   651      
+   652      
+   653  esel,s,type,,1  
+   654  /trlcy,elem,0.9 
+   655  esel,all
+   656  /eshape,1   
+   657  eplot   
+   658  /dev,vect,1 
+   659  esel,s,type,,2  
+   660  /psymb,layr,-1  
+   661  eplot   
+   662      
+
+ RUN SETUP PROCEDURE FROM FILE= C:\Program Files\ANSYS Inc\v145\ANSYS\apdl\start145.ans
+
+ /INPUT FILE= C:\Program Files\ANSYS Inc\v145\ANSYS\apdl\start145.ans  LINE=       0
+
+ *** WARNING ***                         CP =       1.750   TIME= 17:57:35
+ ﻿/UNIT is not a recognized BEGIN command, abbreviation, or macro.     
+ This command will be ignored.                                           
+
+ ANGULAR FUNCTION UNITS SET TO DEGREES
+
+ PARAMETER S =     2.000000000    
+
+ PARAMETER RO1 =     7850.000000    
+
+ PARAMETER RO2 =     2500.000000    
+
+ PARAMETER RO3 =     7000.000000    
+
+ PARAMETER RO5 =     1100.000000    
+
+ PARAMETER E1 =    0.2000000000E+12
+
+ PARAMETER E2 =     1700000.000    
+
+ PARAMETER E3 =    0.3000000000E+11
+
+ PARAMETER E5 =     1000000000.    
+
+ PARAMETER NU1 =    0.3000000000    
+
+ PARAMETER NU2 =    0.4800000000    
+
+ PARAMETER NU3 =    0.2000000000    
+
+ PARAMETER NU5 =    0.3600000000    
+
+ PARAMETER E11 =     2.000000000    
+
+ PARAMETER E22 =     3.000000000    
+
+ PARAMETER E33 =     4.000000000    
+
+ PARAMETER NU11 =     5.000000000    
+
+ PARAMETER NU22 =     3.000000000    
+
+ PARAMETER NU33 =     1.000000000    
+
+ PARAMETER RG1 =     3.000000000    
+
+ PARAMETER RG2 =     4.000000000    
+
+ PARAMETER RG3 =     5.000000000    
+
+ PARAMETER RO =     6.000000000    
+
+ PARAMETER P =     1.000000000    
+
+ PARAMETER Z1 =    0.1000000000E-02
+
+ *DO LOOP ON PARAMETER= I FROM  2.0000     TO  10.000     BY  1.0000    
+
+ PARAMETER Z2 =    0.3000000000E-02
+
+ *ENDDO  INDEX= I                               
+
+ PARAMETER M1 =    0.3000000000E-02
+
+ PARAMETER M2 =    0.3000000000E-02
+
+ PARAMETER M3 =    0.3000000000E-02
+
+ PARAMETER M4 =    0.3000000000E-02
+
+ PARAMETER M5 =    0.3000000000E-02
+
+ PARAMETER M6 =    0.3000000000E-02
+
+ PARAMETER M7 =    0.3000000000E-02
+
+ PARAMETER M8 =    0.3000000000E-02
+
+ PARAMETER M9 =    0.3000000000E-02
+
+ PARAMETER M10 =    0.3000000000E-02
+
+ PARAMETER A =    0.3000000000    
+
+ PARAMETER B =    0.3000000000    
+
+ PARAMETER H =     0.000000000    
+
+ PARAMETER COUNTER =     10.00000000    
+
+ PARAMETER SETKA =     8.000000000    
+
+ PARAMETER L =     2.000000000    
+
+ PARAMETER Z =     30.00000000    
+
+ PARAMETER Q =     10.00000000    
+
+ PARAMETER F =     20.00000000    
+
+ PARAMETER M0 =     0.000000000    
+
+ *DO LOOP ON PARAMETER= I FROM  1.0000     TO  10.000     BY  1.0000    
+
+ PARAMETER M0 =    0.3000000000E-02
+
+ *ENDDO  INDEX= I                               
+1
+
+ ***** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE 14.5.7   *****
+ ANSYS Structural                                  
+ 00115060          VERSION=WINDOWS x64   17:57:35  SEP 21, 2016 CP=      1.750
+
+                                                                               
+
+
+          ***** ANSYS ANALYSIS DEFINITION (PREP7) *****
+
+ ELEMENT TYPE      1 IS SOLID185     3-D 8-NODE STRUCTURAL SOLID 
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ TEMPERATURE TABLE ERASED.
+
+ *** PROPERTY TEMPERATURE TABLE    NUM. TEMPS=  1 ***
+ SLOC=   1     0.000000    
+
+ PROPERTY TABLE EX    MAT=      1  NUM. POINTS=  1
+ SLOC=   1    0.2000000E+12
+
+ PROPERTY TABLE PRXY  MAT=      1  NUM. POINTS=  1
+ SLOC=   1    0.3000000    
+
+ TEMPERATURE TABLE ERASED.
+
+ *** PROPERTY TEMPERATURE TABLE    NUM. TEMPS=  1 ***
+ SLOC=   1     0.000000    
+
+ PROPERTY TABLE DENS  MAT=      1  NUM. POINTS=  1
+ SLOC=   1     7850.000    
+
+ TEMPERATURE TABLE ERASED.
+
+ *** PROPERTY TEMPERATURE TABLE    NUM. TEMPS=  1 ***
+ SLOC=   1     0.000000    
+
+ PROPERTY TABLE EX    MAT=      2  NUM. POINTS=  1
+ SLOC=   1     1700000.    
+
+ PROPERTY TABLE PRXY  MAT=      2  NUM. POINTS=  1
+ SLOC=   1    0.4800000    
+
+ TEMPERATURE TABLE ERASED.
+
+ *** PROPERTY TEMPERATURE TABLE    NUM. TEMPS=  1 ***
+ SLOC=   1     0.000000    
+
+ PROPERTY TABLE DENS  MAT=      2  NUM. POINTS=  1
+ SLOC=   1     2500.000    
+
+ TEMPERATURE TABLE ERASED.
+
+ *** PROPERTY TEMPERATURE TABLE    NUM. TEMPS=  1 ***
+ SLOC=   1     0.000000    
+
+ PROPERTY TABLE EX    MAT=      3  NUM. POINTS=  1
+ SLOC=   1    0.3000000E+11
+
+ PROPERTY TABLE PRXY  MAT=      3  NUM. POINTS=  1
+ SLOC=   1    0.2000000    
+
+ TEMPERATURE TABLE ERASED.
+
+ *** PROPERTY TEMPERATURE TABLE    NUM. TEMPS=  1 ***
+ SLOC=   1     0.000000    
+
+ PROPERTY TABLE DENS  MAT=      3  NUM. POINTS=  1
+ SLOC=   1     7000.000    
+
+ TEMPERATURE TABLE ERASED.
+
+ *** PROPERTY TEMPERATURE TABLE    NUM. TEMPS=  1 ***
+ SLOC=   1     0.000000    
+
+ PROPERTY TABLE EX    MAT=      5  NUM. POINTS=  1
+ SLOC=   1    0.1000000E+10
+
+ PROPERTY TABLE PRXY  MAT=      5  NUM. POINTS=  1
+ SLOC=   1    0.3600000    
+
+ TEMPERATURE TABLE ERASED.
+
+ *** PROPERTY TEMPERATURE TABLE    NUM. TEMPS=  1 ***
+ SLOC=   1     0.000000    
+
+ PROPERTY TABLE DENS  MAT=      5  NUM. POINTS=  1
+ SLOC=   1     1100.000    
+                                      
+   INPUT SECTION ID NUMBER             1
+   INPUT SECTION TYPE                 REINF
+   INPUT REINF SECTION SUBTYPE        SMEA
+   INPUT REINF SECTION NAME           try1    
+
+
+     REINFORCEMENT  #      1
+        MatID         Area        Spacing  iEsys     Ori. Angle
+            5        0.0050        1.0800     0       45.0000
+        PATTern	     f        d1        d2
+          ELEF         1     0.5000     0.5000
+
+
+ SECTION ID NUMBER=        1
+                                      
+   INPUT SECTION ID NUMBER             2
+   INPUT SECTION TYPE                 REINF
+   INPUT REINF SECTION SUBTYPE        SMEA
+   INPUT REINF SECTION NAME           try2    
+
+
+     REINFORCEMENT  #      1
+        MatID         Area        Spacing  iEsys     Ori. Angle
+            5        0.0050        1.0800     0       45.0000
+        PATTern	     f        d1        d2
+          ELEF         1     0.5000     0.5000
+
+
+ SECTION ID NUMBER=        2
+                                      
+   INPUT SECTION ID NUMBER             3
+   INPUT SECTION TYPE                 REINF
+   INPUT REINF SECTION SUBTYPE        SMEA
+   INPUT REINF SECTION NAME           try3    
+
+
+     REINFORCEMENT  #      1
+        MatID         Area        Spacing  iEsys     Ori. Angle
+            5        0.0050        1.0800     0       45.0000
+        PATTern	     f        d1        d2
+          ELEF         1     0.5000     0.5000
+
+
+ SECTION ID NUMBER=        3
+                                      
+   INPUT SECTION ID NUMBER             4
+   INPUT SECTION TYPE                 REINF
+   INPUT REINF SECTION SUBTYPE        SMEA
+   INPUT REINF SECTION NAME           try4    
+
+
+     REINFORCEMENT  #      1
+        MatID         Area        Spacing  iEsys     Ori. Angle
+            5        0.0050        1.0800     0       45.0000
+        PATTern	     f        d1        d2
+          ELEF         1     0.5000     0.5000
+
+
+ SECTION ID NUMBER=        4
+                                      
+   INPUT SECTION ID NUMBER             5
+   INPUT SECTION TYPE                 REINF
+   INPUT REINF SECTION SUBTYPE        SMEA
+   INPUT REINF SECTION NAME           try5    
+
+
+     REINFORCEMENT  #      1
+        MatID         Area        Spacing  iEsys     Ori. Angle
+            5        0.0050        1.0800     0       45.0000
+        PATTern	     f        d1        d2
+          ELEF         1     0.5000     0.5000
+
+
+ SECTION ID NUMBER=        5
+                                      
+   INPUT SECTION ID NUMBER             6
+   INPUT SECTION TYPE                 REINF
+   INPUT REINF SECTION SUBTYPE        SMEA
+   INPUT REINF SECTION NAME           try6    
+
+
+     REINFORCEMENT  #      1
+        MatID         Area        Spacing  iEsys     Ori. Angle
+            5        0.0050        1.0800     0       45.0000
+        PATTern	     f        d1        d2
+          ELEF         1     0.5000     0.5000
+
+
+ SECTION ID NUMBER=        6
+                                      
+   INPUT SECTION ID NUMBER             7
+   INPUT SECTION TYPE                 REINF
+   INPUT REINF SECTION SUBTYPE        SMEA
+   INPUT REINF SECTION NAME           try7    
+
+
+     REINFORCEMENT  #      1
+        MatID         Area        Spacing  iEsys     Ori. Angle
+            5        0.0050        1.0800     0       45.0000
+        PATTern	     f        d1        d2
+          ELEF         1     0.5000     0.5000
+
+
+ SECTION ID NUMBER=        7
+                                      
+   INPUT SECTION ID NUMBER             8
+   INPUT SECTION TYPE                 REINF
+   INPUT REINF SECTION SUBTYPE        SMEA
+   INPUT REINF SECTION NAME           try8    
+
+
+     REINFORCEMENT  #      1
+        MatID         Area        Spacing  iEsys     Ori. Angle
+            5        0.0050        1.0800     0       45.0000
+        PATTern	     f        d1        d2
+          ELEF         1     0.5000     0.5000
+
+
+ SECTION ID NUMBER=        8
+                                      
+   INPUT SECTION ID NUMBER             9
+   INPUT SECTION TYPE                 REINF
+   INPUT REINF SECTION SUBTYPE        SMEA
+   INPUT REINF SECTION NAME           try9    
+
+
+     REINFORCEMENT  #      1
+        MatID         Area        Spacing  iEsys     Ori. Angle
+            5        0.0050        1.0800     0       45.0000
+        PATTern	     f        d1        d2
+          ELEF         1     0.5000     0.5000
+
+
+ SECTION ID NUMBER=        9
+                                      
+   INPUT SECTION ID NUMBER            10
+   INPUT SECTION TYPE                 REINF
+   INPUT REINF SECTION SUBTYPE        SMEA
+   INPUT REINF SECTION NAME           try10   
+
+
+     REINFORCEMENT  #      1
+        MatID         Area        Spacing  iEsys     Ori. Angle
+            5        0.0050        1.0800     0       45.0000
+        PATTern	     f        d1        d2
+          ELEF         1     0.5000     0.5000
+
+
+ SECTION ID NUMBER=       10
+
+ KEYPOINT      1   X,Y,Z=   0.00000       0.00000       0.00000      IN CSYS=  0
+
+ PARAMETER Q1 =     1.000000000    
+
+ KEYPOINT      2   X,Y,Z=  0.300000       0.00000       0.00000      IN CSYS=  0
+
+ PARAMETER Q2 =     2.000000000    
+
+ KEYPOINT      3   X,Y,Z=  0.300000      0.300000       0.00000      IN CSYS=  0
+
+ PARAMETER Q3 =     3.000000000    
+
+ KEYPOINT      4   X,Y,Z=   0.00000      0.300000       0.00000      IN CSYS=  0
+
+ PARAMETER Q4 =     4.000000000    
+
+ LINE CONNECTS KEYPOINTS      1     2
+  LINE NO.=     1  KP1=      1  TAN1=   -1.0000   0.0000   0.0000
+                   KP2=      2  TAN2=    1.0000   0.0000   0.0000
+
+ LINE CONNECTS KEYPOINTS      2     3
+  LINE NO.=     2  KP1=      2  TAN1=    0.0000  -1.0000   0.0000
+                   KP2=      3  TAN2=    0.0000   1.0000   0.0000
+
+ LINE CONNECTS KEYPOINTS      3     4
+  LINE NO.=     3  KP1=      3  TAN1=    1.0000   0.0000   0.0000
+                   KP2=      4  TAN2=   -1.0000   0.0000   0.0000
+
+ LINE CONNECTS KEYPOINTS      4     1
+  LINE NO.=     4  KP1=      4  TAN1=    0.0000   1.0000   0.0000
+                   KP2=      1  TAN2=    0.0000  -1.0000   0.0000
+
+ DEFINE AREA BY LIST OF LINES
+      LINE LIST = ALL SELECTED LINES
+      (TRAVERSED IN SAME DIRECTION AS LINE     1)
+
+     AREA NUMBER =      1
+
+ DEFINITION OF COMPONENT = AREA1     ENTITY=AREA
+
+ *DO LOOP ON PARAMETER= I FROM  1.0000     TO  10.000     BY  1.0000    
+
+ SELECT      COMPONENT AREA1                           
+
+ *GET  BUF1      FROM  AREA  ITEM=NUM  MIN   VALUE=  1.00000000    
+
+ OFFSET AREA      1 BY  0.3000000E-02 WITH KEYPOINT INCREMENT OF      0
+
+ MOVE WORKING PLANE'S FOCUS POINT 
+      0.0000     UNITS ALONG THE WORKING PLANE'S X-AXIS
+      0.0000     UNITS ALONG THE WORKING PLANE'S Y-AXIS
+     0.30000E-02 UNITS ALONG THE WORKING PLANE'S Z-AXIS
+
+ ACTIVE COORDINATE SYSTEM SET TO      4  (CARTESIAN)  
+
+ DEFINITION OF COMPONENT = VOLUME1   ENTITY=VOLU
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Z     BETWEEN  0.0000     AND   0.0000    
+   KABS=  0.  TOLERANCE= 0.100000E-05
+
+        1  AREAS (OF        6  DEFINED) SELECTED BY  ASEL  COMMAND.
+
+ DEFINITION OF COMPONENT = AREA2     ENTITY=AREA
+
+ DEFINITION OF COMPONENT = SLAY      ENTITY=AREA
+
+ UNSELECT     FOR ITEM=VOLU COMPONENT=    
+  IN RANGE       1 TO        1 STEP        1
+
+        0  VOLUMES (OF        1  DEFINED) SELECTED BY VSEL COMMAND.
+
+ UNSELECT     FOR ITEM=AREA COMPONENT=    
+  IN RANGE       1 TO        6 STEP        1
+
+        0  AREAS (OF        6  DEFINED) SELECTED BY ASEL  COMMAND.
+
+ *ENDDO  INDEX= I                               
+
+  MERGE COINCIDENT NODES WITHIN TOLERANCE OF  0.10000E-03
+
+ MERGE IDENTICAL MATERIALS WITHIN TOLERANCE OF  0.10000E-06
+ ZERO MATERIALS WERE MERGED
+
+ MERGE IDENTICAL ELEMENT TYPES
+
+ MERGE IDENTICAL REAL CONSTANT SETS WITHIN TOLERANCE OF  0.10000E-06
+
+ MERGE IDENTICAL ELEMENTS
+
+ MERGE IDENTICAL COUPLED DOF SETS
+
+ MERGE IDENTICAL CONSTRAINT EQUATIONS WITHIN TOLERANCE OF 0.10000E-06
+
+ MERGE COINCIDENT KEYPOINTS WITHIN TOLERANCE OF  0.10000E-03
+
+ NO KEYPOINTS WERE MERGED
+
+ SET PARAMETER DIMENSIONS ON  VAL TYPE=ARRA  DIMENSIONS=    10     1     1
+
+ PARAMETER VAL(1) =     1.000000000      1.000000000      1.000000000    
+                          0.000000000      1.000000000      1.000000000    
+                          0.000000000      0.000000000      0.000000000    
+                          1.000000000    
+
+ *DO LOOP ON PARAMETER= I FROM  1.0000     TO  10.000     BY  1.0000    
+
+ SELECT      COMPONENT VOLUME1                         
+
+ SET ATTRIBUTES FOR ALL SELECTED VOLUMES
+      MAT =    2   REAL =       0   TYPE =    1   ESYS =    0   SECT =    0
+
+ ATTRIBUTES SET FOR      1 VOLUMES (OUT OF      1 SELECTED)
+
+ SELECT      ALL AREAS HAVING ANY VOLUMES IN SELECTED VOLUME SET.
+
+        6  AREAS (OF       51  DEFINED) SELECTED FROM 
+        1 SELECTED VOLUMES BY  ASLV  COMMAND.
+
+ SELECT      LINES ASSOCIATED WITH SELECTED AREAS
+
+       12  LINES (OF       84  DEFINED) SELECTED FROM
+        6 SELECTED AREAS BY  LSLA  COMMAND.
+
+ UNSELECT     FOR ITEM=LOC  COMPONENT=Y     BETWEEN  0.0000     AND   0.0000    
+   KABS=  0.  TOLERANCE= 0.100000E-05
+
+        8  LINES (OF       84  DEFINED) SELECTED BY LSEL COMMAND.
+
+ UNSELECT     FOR ITEM=LOC  COMPONENT=Y     BETWEEN 0.37500E-01 AND  0.37500E-01
+   KABS=  0.  TOLERANCE= 0.187500E-03
+
+        8  LINES (OF       84  DEFINED) SELECTED BY LSEL COMMAND.
+
+ SET DIVISIONS ON ALL SELECTED LINES
+      FOR ELEMENT SIZE =  0.37500E-01    SPACING RATIO =     1.0000
+      (KFORCE = 0      PREVIOUS NONZERO VALUES WILL NOT BE ALTERED)
+ NDIV AND SPACE CAN BE OVERRIDDEN FOR CURVATURE OR PROXIMITY
+
+ SELECT      LINES ASSOCIATED WITH SELECTED AREAS
+
+       12  LINES (OF       84  DEFINED) SELECTED FROM
+        6 SELECTED AREAS BY  LSLA  COMMAND.
+
+ UNSELECT     FOR ITEM=LOC  COMPONENT=X     BETWEEN  0.0000     AND   0.0000    
+   KABS=  0.  TOLERANCE= 0.100000E-05
+
+        8  LINES (OF       84  DEFINED) SELECTED BY LSEL COMMAND.
+
+ UNSELECT     FOR ITEM=LOC  COMPONENT=X     BETWEEN 0.37500E-01 AND  0.37500E-01
+   KABS=  0.  TOLERANCE= 0.187500E-03
+
+        8  LINES (OF       84  DEFINED) SELECTED BY LSEL COMMAND.
+
+ SET DIVISIONS ON ALL SELECTED LINES
+      FOR ELEMENT SIZE =  0.37500E-01    SPACING RATIO =     1.0000
+      (KFORCE = 0      PREVIOUS NONZERO VALUES WILL NOT BE ALTERED)
+ NDIV AND SPACE CAN BE OVERRIDDEN FOR CURVATURE OR PROXIMITY
+
+ SELECT      LINES ASSOCIATED WITH SELECTED AREAS
+
+       12  LINES (OF       84  DEFINED) SELECTED FROM
+        6 SELECTED AREAS BY  LSLA  COMMAND.
+
+ RESELECT     FOR ITEM=LOC  COMPONENT=Y     BETWEEN 0.37500E-01 AND  0.37500E-01
+   KABS=  0.  TOLERANCE= 0.187500E-03
+
+        0  LINES (OF       84  DEFINED) SELECTED BY LSEL  COMMAND.
+
+ ALSO SELECT  FOR ITEM=LOC  COMPONENT=Y     BETWEEN  0.0000     AND   0.0000    
+   KABS=  0.  TOLERANCE= 0.100000E-05
+
+       31  LINES (OF       84  DEFINED) SELECTED BY LSEL COMMAND.
+
+ RESELECT     FOR ITEM=LOC  COMPONENT=X     BETWEEN  0.0000     AND   0.0000    
+   KABS=  0.  TOLERANCE= 0.100000E-05
+
+       10  LINES (OF       84  DEFINED) SELECTED BY LSEL  COMMAND.
+
+ SET DIVISIONS ON ALL SELECTED LINES
+      FOR ELEMENT SIZE =  0.10000E-02    SPACING RATIO =     1.0000
+      (KFORCE = 0      PREVIOUS NONZERO VALUES WILL NOT BE ALTERED)
+ NDIV AND SPACE CAN BE OVERRIDDEN FOR CURVATURE OR PROXIMITY
+
+ GENERATE NODES AND ELEMENTS   IN  ALL  PICKED   VOLUMES  
+
+ NUMBER OF VOLUMES MESHED   =       1
+ MAXIMUM NODE NUMBER        =     324
+ MAXIMUM ELEMENT NUMBER     =     192
+
+ ------------------------------------------------------------------------------
+            <<<<<<          SHAPE TESTING SUMMARY           >>>>>>
+            <<<<<<       FOR NEW OR MODIFIED ELEMENTS       >>>>>>
+ ------------------------------------------------------------------------------
+                    --------------------------------------
+                    |  Element count       192 SOLID185  |
+                    --------------------------------------
+
+  Test                Number tested  Warning count  Error count    Warn+Err %
+  ----                -------------  -------------  -----------    ----------
+  Aspect Ratio                192            192             0       100.00 %
+  Parallel Deviation          192              0             0         0.00 %
+  Maximum Angle               192              0             0         0.00 %
+  Jacobian Ratio              192              0             0         0.00 %
+  Warping Factor              192              0             0         0.00 %
+
+  Any                         192            192             0       100.00 %
+ ------------------------------------------------------------------------------
+
+ *** WARNING ***                         CP =       1.781   TIME= 17:57:35
+ Shape testing revealed that 192 of the 192 new or modified elements     
+ violate shape warning limits.  To review test results, please see the   
+ output file or issue the CHECK command.                                 
+
+ *ENDDO  INDEX= I                               
+
+ *** WARNING ***                         CP =       1.797   TIME= 17:57:35
+ Shape testing revealed that 192 of the 192 new or modified elements     
+ violate shape warning limits.  To review test results, please see the   
+ output file or issue the CHECK command.                                 
+
+ *** WARNING ***                         CP =       1.797   TIME= 17:57:35
+ Shape testing revealed that 192 of the 192 new or modified elements     
+ violate shape warning limits.  To review test results, please see the   
+ output file or issue the CHECK command.                                 
+
+ *** WARNING ***                         CP =       1.812   TIME= 17:57:35
+ Shape testing revealed that 192 of the 192 new or modified elements     
+ violate shape warning limits.  To review test results, please see the   
+ output file or issue the CHECK command.                                 
+
+ *** WARNING ***                         CP =       1.812   TIME= 17:57:35
+ Shape testing revealed that 192 of the 192 new or modified elements     
+ violate shape warning limits.  To review test results, please see the   
+ output file or issue the CHECK command.                                 
+
+ *** WARNING ***                         CP =       1.812   TIME= 17:57:35
+ Shape testing revealed that 192 of the 192 new or modified elements     
+ violate shape warning limits.  To review test results, please see the   
+ output file or issue the CHECK command.                                 
+
+ *** WARNING ***                         CP =       1.828   TIME= 17:57:35
+ Shape testing revealed that 192 of the 192 new or modified elements     
+ violate shape warning limits.  To review test results, please see the   
+ output file or issue the CHECK command.                                 
+
+ *** WARNING ***                         CP =       1.828   TIME= 17:57:35
+ Shape testing revealed that 192 of the 192 new or modified elements     
+ violate shape warning limits.  To review test results, please see the   
+ output file or issue the CHECK command.                                 
+
+ *** WARNING ***                         CP =       1.828   TIME= 17:57:35
+ Shape testing revealed that 192 of the 192 new or modified elements     
+ violate shape warning limits.  To review test results, please see the   
+ output file or issue the CHECK command.                                 
+
+ *** WARNING ***                         CP =       1.844   TIME= 17:57:35
+ Shape testing revealed that 192 of the 192 new or modified elements     
+ violate shape warning limits.  To review test results, please see the   
+ output file or issue the CHECK command.                                 
+
+ ACTIVE COORDINATE SYSTEM SET TO      0  (CARTESIAN)  
+
+ MOVE ORIGIN OF WORKING PLANE TO THE AVERAGE OF      1 LOCATIONS IN CSYS      0
+    0.00000    ,    0.00000    ,   0.300000E-01
+
+ ACTIVE COORDINATE SYSTEM SET TO      4  (CARTESIAN)  
+
+ UNSELECT     FOR ITEM=AREA COMPONENT=    
+  IN RANGE       1 TO       51 STEP        1
+
+        0  AREAS (OF       51  DEFINED) SELECTED BY ASEL  COMMAND.
+
+ UNSELECT     FOR ITEM=LINE COMPONENT=    
+  IN RANGE       1 TO       84 STEP        1
+
+        0  LINES (OF       84  DEFINED) SELECTED BY LSEL COMMAND.
+
+ UNSELECT     FOR ITEM=VOLU COMPONENT=    
+  IN RANGE       1 TO       10 STEP        1
+
+        0  VOLUMES (OF       10  DEFINED) SELECTED BY VSEL COMMAND.
+
+ KEYPOINT    201   X,Y,Z=   0.00000       0.00000       0.00000      IN CSYS=  4
+
+                          0.00000       0.00000      0.300000E-01  IN CSYS=  0
+
+ PARAMETER Q9 =     41.00000000    
+
+ KEYPOINT    202   X,Y,Z=  0.150000       0.00000       0.00000      IN CSYS=  4
+
+                         0.150000       0.00000      0.300000E-01  IN CSYS=  0
+
+ PARAMETER Q10 =     202.0000000    
+
+ KEYPOINT    203   X,Y,Z=  0.150000      0.150000       0.00000      IN CSYS=  4
+
+                         0.150000      0.150000      0.300000E-01  IN CSYS=  0
+
+ PARAMETER Q11 =     203.0000000    
+
+ KEYPOINT    204   X,Y,Z=   0.00000      0.150000       0.00000      IN CSYS=  4
+
+                          0.00000      0.150000      0.300000E-01  IN CSYS=  0
+
+ PARAMETER Q12 =     204.0000000    
+
+ LINE CONNECTS KEYPOINTS     41   202
+  LINE NO.=    85  KP1=     41  TAN1=   -1.0000   0.0000   0.0000
+                   KP2=    202  TAN2=    1.0000   0.0000   0.0000
+
+ LINE CONNECTS KEYPOINTS    202   203
+  LINE NO.=    86  KP1=    202  TAN1=    0.0000  -1.0000   0.0000
+                   KP2=    203  TAN2=    0.0000   1.0000   0.0000
+
+ LINE CONNECTS KEYPOINTS    203   204
+  LINE NO.=    87  KP1=    203  TAN1=    1.0000   0.0000   0.0000
+                   KP2=    204  TAN2=   -1.0000   0.0000   0.0000
+
+ LINE CONNECTS KEYPOINTS    204    41
+  LINE NO.=    88  KP1=    204  TAN1=    0.0000   1.0000   0.0000
+                   KP2=     41  TAN2=    0.0000  -1.0000   0.0000
+
+ DEFINE AREA BY LIST OF LINES
+      LINE LIST = ALL SELECTED LINES
+      (TRAVERSED IN SAME DIRECTION AS LINE    85)
+
+     AREA NUMBER =     52
+
+ DEFINITION OF COMPONENT = TOPLAYER  ENTITY=AREA
+
+ *GET  NA1       FROM  AREA  ITEM=NUM  MIN   VALUE=  52.0000000    
+
+ OFFSET AREA     52 BY  0.5000000E-01 WITH KEYPOINT INCREMENT OF      0
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Z     BETWEEN 0.15000E-01 AND  0.15000E-01
+   KABS=  0.  TOLERANCE= 0.750000E-04
+
+        0  AREAS (OF       57  DEFINED) SELECTED BY  ASEL  COMMAND.
+
+ DEFINITION OF COMPONENT = PRESSURE  ENTITY=AREA
+
+ DEFINITION OF COMPONENT = TOP       ENTITY=VOLU
+
+ UNSELECT     FOR ITEM=AREA COMPONENT=    
+  IN RANGE       1 TO       57 STEP        1
+
+        0  AREAS (OF       57  DEFINED) SELECTED BY ASEL  COMMAND.
+
+ UNSELECT     FOR ITEM=LINE COMPONENT=    
+  IN RANGE       1 TO       96 STEP        1
+
+        0  LINES (OF       96  DEFINED) SELECTED BY LSEL COMMAND.
+
+ UNSELECT     FOR ITEM=VOLU COMPONENT=    
+  IN RANGE       1 TO       11 STEP        1
+
+        0  VOLUMES (OF       11  DEFINED) SELECTED BY VSEL COMMAND.
+
+ ACTIVE COORDINATE SYSTEM SET TO      0  (CARTESIAN)  
+
+ MOVE ORIGIN OF WORKING PLANE TO THE AVERAGE OF      1 LOCATIONS IN CSYS      0
+    0.00000    ,    0.00000    ,    0.00000    
+
+ ACTIVE COORDINATE SYSTEM SET TO      4  (CARTESIAN)  
+
+ UNSELECT     FOR ITEM=AREA COMPONENT=    
+  IN RANGE       1 TO       57 STEP        1
+
+        0  AREAS (OF       57  DEFINED) SELECTED BY ASEL  COMMAND.
+
+ UNSELECT     FOR ITEM=LINE COMPONENT=    
+  IN RANGE       1 TO       96 STEP        1
+
+        0  LINES (OF       96  DEFINED) SELECTED BY LSEL COMMAND.
+
+ UNSELECT     FOR ITEM=VOLU COMPONENT=    
+  IN RANGE       1 TO       11 STEP        1
+
+        0  VOLUMES (OF       11  DEFINED) SELECTED BY VSEL COMMAND.
+
+ KEYPOINT    105   X,Y,Z=   0.00000       0.00000       0.00000      IN CSYS=  4
+
+                          0.00000       0.00000       0.00000      IN CSYS=  0
+
+ PARAMETER Q5 =     1.000000000    
+
+ KEYPOINT    106   X,Y,Z=  0.600000       0.00000       0.00000      IN CSYS=  4
+
+                         0.600000       0.00000       0.00000      IN CSYS=  0
+
+ PARAMETER Q6 =     106.0000000    
+
+ KEYPOINT    107   X,Y,Z=  0.600000      0.600000       0.00000      IN CSYS=  4
+
+                         0.600000      0.600000       0.00000      IN CSYS=  0
+
+ PARAMETER Q7 =     107.0000000    
+
+ KEYPOINT    108   X,Y,Z=   0.00000      0.600000       0.00000      IN CSYS=  4
+
+                          0.00000      0.600000       0.00000      IN CSYS=  0
+
+ PARAMETER Q8 =     108.0000000    
+
+ LINE CONNECTS KEYPOINTS      1   106
+  LINE NO.=    97  KP1=      1  TAN1=   -1.0000   0.0000   0.0000
+                   KP2=    106  TAN2=    1.0000   0.0000   0.0000
+
+ LINE CONNECTS KEYPOINTS    106   107
+  LINE NO.=    98  KP1=    106  TAN1=    0.0000  -1.0000   0.0000
+                   KP2=    107  TAN2=    0.0000   1.0000   0.0000
+
+ LINE CONNECTS KEYPOINTS    107   108
+  LINE NO.=    99  KP1=    107  TAN1=    1.0000   0.0000   0.0000
+                   KP2=    108  TAN2=   -1.0000   0.0000   0.0000
+
+ LINE CONNECTS KEYPOINTS    108     1
+  LINE NO.=   100  KP1=    108  TAN1=    0.0000   1.0000   0.0000
+                   KP2=      1  TAN2=    0.0000  -1.0000   0.0000
+
+ DEFINE AREA BY LIST OF LINES
+      LINE LIST = ALL SELECTED LINES
+      (TRAVERSED IN SAME DIRECTION AS LINE    97)
+
+     AREA NUMBER =     58
+
+ *GET  QW        FROM  AREA  ITEM=NUM  MAX   VALUE=  58.0000000    
+
+ DEFINITION OF COMPONENT = CONT1     ENTITY=AREA
+
+ OFFSET AREA     58 BY -0.6000000E-01 WITH KEYPOINT INCREMENT OF      0
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Z     BETWEEN-0.60000E-01 AND -0.60000E-01
+   KABS=  0.  TOLERANCE= 0.300000E-03
+
+        1  AREAS (OF       63  DEFINED) SELECTED BY  ASEL  COMMAND.
+
+ DEFINITION OF COMPONENT = DOF       ENTITY=AREA
+
+ DEFINITION OF COMPONENT = BOT       ENTITY=VOLU
+
+ SELECT      COMPONENT BOT                             
+
+ SET ATTRIBUTES FOR ALL SELECTED VOLUMES
+      MAT =    3   REAL =       0   TYPE =    1   ESYS =    0   SECT =    0
+
+ ATTRIBUTES SET FOR      1 VOLUMES (OUT OF      1 SELECTED)
+
+ SELECT      ALL AREAS HAVING ANY VOLUMES IN SELECTED VOLUME SET.
+
+        6  AREAS (OF       63  DEFINED) SELECTED FROM 
+        1 SELECTED VOLUMES BY  ASLV  COMMAND.
+
+ SELECT      LINES ASSOCIATED WITH SELECTED AREAS
+
+       12  LINES (OF      108  DEFINED) SELECTED FROM
+        6 SELECTED AREAS BY  LSLA  COMMAND.
+
+ UNSELECT     FOR ITEM=LOC  COMPONENT=Y     BETWEEN  0.0000     AND   0.0000    
+   KABS=  0.  TOLERANCE= 0.100000E-05
+
+        8  LINES (OF      108  DEFINED) SELECTED BY LSEL COMMAND.
+
+ UNSELECT     FOR ITEM=LOC  COMPONENT=Y     BETWEEN 0.15000E-01 AND  0.15000E-01
+   KABS=  0.  TOLERANCE= 0.750000E-04
+
+        8  LINES (OF      108  DEFINED) SELECTED BY LSEL COMMAND.
+
+ SET DIVISIONS ON ALL SELECTED LINES
+      FOR ELEMENT SIZE =  0.15000E-01    SPACING RATIO =     1.0000
+      (KFORCE = 0      PREVIOUS NONZERO VALUES WILL NOT BE ALTERED)
+ NDIV AND SPACE CAN BE OVERRIDDEN FOR CURVATURE OR PROXIMITY
+
+ SELECT      LINES ASSOCIATED WITH SELECTED AREAS
+
+       12  LINES (OF      108  DEFINED) SELECTED FROM
+        6 SELECTED AREAS BY  LSLA  COMMAND.
+
+ UNSELECT     FOR ITEM=LOC  COMPONENT=X     BETWEEN  0.0000     AND   0.0000    
+   KABS=  0.  TOLERANCE= 0.100000E-05
+
+        8  LINES (OF      108  DEFINED) SELECTED BY LSEL COMMAND.
+
+ UNSELECT     FOR ITEM=LOC  COMPONENT=X     BETWEEN 0.15000E-01 AND  0.15000E-01
+   KABS=  0.  TOLERANCE= 0.750000E-04
+
+        8  LINES (OF      108  DEFINED) SELECTED BY LSEL COMMAND.
+
+ SET DIVISIONS ON ALL SELECTED LINES
+      FOR ELEMENT SIZE =  0.15000E-01    SPACING RATIO =     1.0000
+      (KFORCE = 0      PREVIOUS NONZERO VALUES WILL NOT BE ALTERED)
+ NDIV AND SPACE CAN BE OVERRIDDEN FOR CURVATURE OR PROXIMITY
+
+ SELECT      LINES ASSOCIATED WITH SELECTED AREAS
+
+       12  LINES (OF      108  DEFINED) SELECTED FROM
+        6 SELECTED AREAS BY  LSLA  COMMAND.
+
+ RESELECT     FOR ITEM=LOC  COMPONENT=Y     BETWEEN 0.15000E-01 AND  0.15000E-01
+   KABS=  0.  TOLERANCE= 0.750000E-04
+
+        0  LINES (OF      108  DEFINED) SELECTED BY LSEL  COMMAND.
+
+ ALSO SELECT  FOR ITEM=LOC  COMPONENT=Y     BETWEEN  0.0000     AND   0.0000    
+   KABS=  0.  TOLERANCE= 0.100000E-05
+
+       39  LINES (OF      108  DEFINED) SELECTED BY LSEL COMMAND.
+
+ RESELECT     FOR ITEM=LOC  COMPONENT=X     BETWEEN  0.0000     AND   0.0000    
+   KABS=  0.  TOLERANCE= 0.100000E-05
+
+       12  LINES (OF      108  DEFINED) SELECTED BY LSEL  COMMAND.
+
+ SET DIVISIONS ON ALL SELECTED LINES
+      FOR ELEMENT SIZE =  0.15000E-01    SPACING RATIO =     1.0000
+      (KFORCE = 0      PREVIOUS NONZERO VALUES WILL NOT BE ALTERED)
+ NDIV AND SPACE CAN BE OVERRIDDEN FOR CURVATURE OR PROXIMITY
+
+ GENERATE NODES AND ELEMENTS   IN  ALL  PICKED   VOLUMES  
+
+ NUMBER OF VOLUMES MESHED   =       1
+ MAXIMUM NODE NUMBER        =   10915
+ MAXIMUM ELEMENT NUMBER     =    8320
+
+ SELECT ALL ENTITIES OF TYPE= ALL  AND BELOW
+
+ SELECT ALL ENTITIES OF TYPE= ALL  AND BELOW
+
+ SELECT      COMPONENT TOP                             
+
+ SET ATTRIBUTES FOR ALL SELECTED VOLUMES
+      MAT =    1   REAL =       0   TYPE =    1   ESYS =    0   SECT =    0
+
+ ATTRIBUTES SET FOR      1 VOLUMES (OUT OF      1 SELECTED)
+
+ SELECT      ALL AREAS HAVING ANY VOLUMES IN SELECTED VOLUME SET.
+
+        6  AREAS (OF       63  DEFINED) SELECTED FROM 
+        1 SELECTED VOLUMES BY  ASLV  COMMAND.
+
+ SELECT      LINES ASSOCIATED WITH SELECTED AREAS
+
+       12  LINES (OF      108  DEFINED) SELECTED FROM
+        6 SELECTED AREAS BY  LSLA  COMMAND.
+
+ UNSELECT     FOR ITEM=LOC  COMPONENT=Y     BETWEEN  0.0000     AND   0.0000    
+   KABS=  0.  TOLERANCE= 0.100000E-05
+
+        8  LINES (OF      108  DEFINED) SELECTED BY LSEL COMMAND.
+
+ UNSELECT     FOR ITEM=LOC  COMPONENT=Y     BETWEEN 0.10000     AND  0.10000    
+   KABS=  0.  TOLERANCE= 0.500000E-03
+
+        8  LINES (OF      108  DEFINED) SELECTED BY LSEL COMMAND.
+
+ SET DIVISIONS ON ALL SELECTED LINES
+      FOR ELEMENT SIZE =  0.10000E-01    SPACING RATIO =     1.0000
+      (KFORCE = 0      PREVIOUS NONZERO VALUES WILL NOT BE ALTERED)
+ NDIV AND SPACE CAN BE OVERRIDDEN FOR CURVATURE OR PROXIMITY
+
+ SELECT      LINES ASSOCIATED WITH SELECTED AREAS
+
+       12  LINES (OF      108  DEFINED) SELECTED FROM
+        6 SELECTED AREAS BY  LSLA  COMMAND.
+
+ UNSELECT     FOR ITEM=LOC  COMPONENT=X     BETWEEN  0.0000     AND   0.0000    
+   KABS=  0.  TOLERANCE= 0.100000E-05
+
+        8  LINES (OF      108  DEFINED) SELECTED BY LSEL COMMAND.
+
+ UNSELECT     FOR ITEM=LOC  COMPONENT=X     BETWEEN 0.10000     AND  0.10000    
+   KABS=  0.  TOLERANCE= 0.500000E-03
+
+        8  LINES (OF      108  DEFINED) SELECTED BY LSEL COMMAND.
+
+ SET DIVISIONS ON ALL SELECTED LINES
+      FOR ELEMENT SIZE =  0.10000E-01    SPACING RATIO =     1.0000
+      (KFORCE = 0      PREVIOUS NONZERO VALUES WILL NOT BE ALTERED)
+ NDIV AND SPACE CAN BE OVERRIDDEN FOR CURVATURE OR PROXIMITY
+
+ SELECT      LINES ASSOCIATED WITH SELECTED AREAS
+
+       12  LINES (OF      108  DEFINED) SELECTED FROM
+        6 SELECTED AREAS BY  LSLA  COMMAND.
+
+ RESELECT     FOR ITEM=LOC  COMPONENT=Y     BETWEEN 0.10000     AND  0.10000    
+   KABS=  0.  TOLERANCE= 0.500000E-03
+
+        0  LINES (OF      108  DEFINED) SELECTED BY LSEL  COMMAND.
+
+ ALSO SELECT  FOR ITEM=LOC  COMPONENT=Y     BETWEEN  0.0000     AND   0.0000    
+   KABS=  0.  TOLERANCE= 0.100000E-05
+
+       39  LINES (OF      108  DEFINED) SELECTED BY LSEL COMMAND.
+
+ RESELECT     FOR ITEM=LOC  COMPONENT=X     BETWEEN  0.0000     AND   0.0000    
+   KABS=  0.  TOLERANCE= 0.100000E-05
+
+       12  LINES (OF      108  DEFINED) SELECTED BY LSEL  COMMAND.
+
+ SET DIVISIONS ON ALL SELECTED LINES
+      FOR ELEMENT SIZE =  0.20000E-01    SPACING RATIO =     1.0000
+      (KFORCE = 0      PREVIOUS NONZERO VALUES WILL NOT BE ALTERED)
+ NDIV AND SPACE CAN BE OVERRIDDEN FOR CURVATURE OR PROXIMITY
+
+ GENERATE NODES AND ELEMENTS   IN  ALL  PICKED   VOLUMES  
+
+ NUMBER OF VOLUMES MESHED   =       1
+ MAXIMUM NODE NUMBER        =   12450
+ MAXIMUM ELEMENT NUMBER     =    9445
+
+ SELECT       FOR ITEM=LOC  COMPONENT=X     BETWEEN  0.0000     AND   0.0000    
+   KABS=  0.  TOLERANCE= 0.100000E-05
+
+       12  AREAS (OF       63  DEFINED) SELECTED BY  ASEL  COMMAND.
+
+ ALSO SELECT  FOR ITEM=LOC  COMPONENT=Y     BETWEEN  0.0000     AND   0.0000    
+   KABS=  0.  TOLERANCE= 0.100000E-05
+
+       24  AREAS (OF       63  DEFINED) SELECTED BY ASEL  COMMAND.
+
+ CONSTRAINT AT ALL SELECTED AREAS
+      LOAD LABEL = SYMM
+
+ SELECT ALL ENTITIES OF TYPE= ALL  AND BELOW
+  CONTACT PAIR CREATION - START
+
+ DEFINITION OF COMPONENT = _NODECM   ENTITY=NODE
+
+ DEFINITION OF COMPONENT = _ELEMCM   ENTITY=ELEM
+
+ DEFINITION OF COMPONENT = _KPCM     ENTITY=KP  
+
+ DEFINITION OF COMPONENT = _LINECM   ENTITY=LINE
+
+ DEFINITION OF COMPONENT = _AREACM   ENTITY=AREA
+
+ DEFINITION OF COMPONENT = _VOLUCM   ENTITY=VOLU
+
+ GRAPHICS DATABASE SAVED ON FILE  cwz.gsav                                                                                                                                                                                                                                                            
+
+ MATERIAL         1     MU   =   0.000000      
+
+ MATERIAL NUMBER SET TO         1
+
+ MATERIAL         1     EMIS =  0.7888609E-30  
+
+ REAL CONSTANT SET       3  ITEMS   1 TO   6
+    0.0000       0.0000       0.0000       0.0000       0.0000       0.0000    
+
+ REAL CONSTANT NUMBER=        3
+
+ ELEMENT TYPE      3 IS TARGE170     3-D TARGET SEGMENT          
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ ELEMENT TYPE      4 IS CONTA174     3D 8-NODE SURF-SURF CONTACT 
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ REAL CONSTANT SET       3  ITEMS   1 TO   6
+    0.0000       0.0000       1.0000      0.10000       0.0000       0.0000    
+
+ REAL CONSTANT SET       3  ITEMS   7 TO  12
+    0.0000       0.0000      0.10000E+21   0.0000       1.0000       0.0000    
+
+ REAL CONSTANT SET       3  ITEMS  13 TO  18
+    0.0000       0.0000       1.0000       0.0000       1.0000      0.50000    
+
+ REAL CONSTANT SET       3  ITEMS  19 TO  24
+    0.0000       1.0000       1.0000       0.0000       0.0000       1.0000    
+
+ ELEMENT TYPE      4 IS CONTA174     3D 8-NODE SURF-SURF CONTACT 
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ ELEMENT TYPE      4 IS CONTA174     3D 8-NODE SURF-SURF CONTACT 
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ ELEMENT TYPE      4 IS CONTA174     3D 8-NODE SURF-SURF CONTACT 
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ ELEMENT TYPE      4 IS CONTA174     3D 8-NODE SURF-SURF CONTACT 
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ ELEMENT TYPE      4 IS CONTA174     3D 8-NODE SURF-SURF CONTACT 
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ ELEMENT TYPE      4 IS CONTA174     3D 8-NODE SURF-SURF CONTACT 
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        2      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ ELEMENT TYPE      4 IS CONTA174     3D 8-NODE SURF-SURF CONTACT 
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        2      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ ELEMENT TYPE      4 IS CONTA174     3D 8-NODE SURF-SURF CONTACT 
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        2      0      5
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ ELEMENT TYPE      4 IS CONTA174     3D 8-NODE SURF-SURF CONTACT 
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        2      0      5
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ ELEMENT TYPE      3 IS TARGE170     3-D TARGET SEGMENT          
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ SELECT       FOR ITEM=AREA COMPONENT=    
+  IN RANGE      58 TO       58 STEP        1
+
+        1  AREAS (OF       63  DEFINED) SELECTED BY  ASEL  COMMAND.
+
+ DEFINITION OF COMPONENT = _TARGET   ENTITY=AREA
+
+ ELEMENT TYPE SET TO         3
+
+ SELECT      ALL NODES (INTERIOR TO AREA, INTERIOR TO LINES, AND AT 
+        KEYPOINTS) RELATED TO SELECTED AREA SET.
+
+     1681  NODES (OF    12450  DEFINED) SELECTED FROM 
+        1 SELECTED AREAS BY NSLA COMMAND.
+
+ SELECT      ALL ELEMENTS HAVING ANY NODE IN NODAL SET.
+
+     1601 ELEMENTS (OF     9445  DEFINED) SELECTED FROM
+     1681 SELECTED NODES BY  ESLN COMMAND.
+
+ UNSELECT    ELEMENTS CREATED FROM SELECTED LINES.
+
+     1601  ELEMENTS (OF     9445  DEFINED) SELECTED FROM      108 SELECTED LINES
+         BY  ESLL  COMMAND.
+
+ UNSELECT     FOR ITEM=ENAM COMPONENT=    
+  IN RANGE     188 TO      189 STEP        1
+
+     1601  ELEMENTS (OF     9445  DEFINED) SELECTED BY  ESEL  COMMAND.
+
+ ALSO SELECT ALL NODES HAVING ANY ELEMENT IN ELEMENT SET.
+ NODES SHARING BRICK FACES WITH 3 PREVIOUSLY SELECTED NODES
+
+     1681 NODES (OF    12450  DEFINED) SELECTED FROM
+     1601 SELECTED ELEMENTS BY NSLE COMMAND.
+
+ GENERATE ELEMENTS ON SURFACE DEFINED BY SELECTED NODES
+  TYPE=   3  REAL=      3  MATERIAL=     1  ESYS=  0
+
+ NUMBER OF ELEMENTS GENERATED=   1600
+
+ SELECT      COMPONENT _ELEMCM                         
+
+ SELECT       FOR ITEM=AREA COMPONENT=    
+  IN RANGE       1 TO        1 STEP        1
+
+        1  AREAS (OF       63  DEFINED) SELECTED BY  ASEL  COMMAND.
+
+ DEFINITION OF COMPONENT = _CONTACT  ENTITY=AREA
+
+ ELEMENT TYPE SET TO         4
+
+ SELECT      ALL NODES (INTERIOR TO AREA, INTERIOR TO LINES, AND AT 
+        KEYPOINTS) RELATED TO SELECTED AREA SET.
+
+       81  NODES (OF    12450  DEFINED) SELECTED FROM 
+        1 SELECTED AREAS BY NSLA COMMAND.
+
+ SELECT      ALL ELEMENTS HAVING ANY NODE IN NODAL SET.
+
+       66 ELEMENTS (OF    11045  DEFINED) SELECTED FROM
+       81 SELECTED NODES BY  ESLN COMMAND.
+
+ ALSO SELECT ALL NODES HAVING ANY ELEMENT IN ELEMENT SET.
+ NODES SHARING BRICK FACES WITH 3 PREVIOUSLY SELECTED NODES
+
+       81 NODES (OF    12450  DEFINED) SELECTED FROM
+       66 SELECTED ELEMENTS BY NSLE COMMAND.
+
+ GENERATE ELEMENTS ON SURFACE DEFINED BY SELECTED NODES
+  TYPE=   4  REAL=      3  MATERIAL=     1  ESYS=  0
+
+ NUMBER OF ELEMENTS GENERATED=     64
+
+ SELECT ALL ENTITIES OF TYPE= ALL  AND BELOW
+
+ ALL SELECT   FOR ITEM=ELEM COMPONENT=    
+  IN RANGE       1 TO    11109 STEP        1
+
+    11109  ELEMENTS (OF    11109  DEFINED) SELECTED BY  ESEL  COMMAND.
+
+ SELECT       FOR ITEM=TYPE COMPONENT=    
+  IN RANGE       3 TO        3 STEP        1
+
+     1600  ELEMENTS (OF    11109  DEFINED) SELECTED BY  ESEL  COMMAND.
+
+ ALSO SELECT  FOR ITEM=TYPE COMPONENT=    
+  IN RANGE       4 TO        4 STEP        1
+
+     1664  ELEMENTS (OF    11109  DEFINED) SELECTED BY  ESEL  COMMAND.
+
+ RESELECT     FOR ITEM=REAL COMPONENT=    
+  IN RANGE       3 TO        3 STEP        1
+
+     1664  ELEMENTS (OF    11109  DEFINED) SELECTED BY  ESEL  COMMAND.
+
+ ESYS SYMBOL PLOT KEY =  1
+
+ TYPE NUMBERING KEY =  1
+
+ NUMBER KEY SET TO  1  -1=NONE  0=BOTH  1=COLOR  2=NUMBER
+
+ *** NOTE *** Display device has not yet been specified with the /SHOW command.  Display commands ignored. 
+
+ ALL SELECT   FOR ITEM=ELEM COMPONENT=    
+  IN RANGE       1 TO    11109 STEP        1
+
+    11109  ELEMENTS (OF    11109  DEFINED) SELECTED BY  ESEL  COMMAND.
+
+ SELECT       FOR ITEM=TYPE COMPONENT=    
+  IN RANGE       3 TO        3 STEP        1
+
+     1600  ELEMENTS (OF    11109  DEFINED) SELECTED BY  ESEL  COMMAND.
+
+ ALSO SELECT  FOR ITEM=TYPE COMPONENT=    
+  IN RANGE       4 TO        4 STEP        1
+
+     1664  ELEMENTS (OF    11109  DEFINED) SELECTED BY  ESEL  COMMAND.
+
+ RESELECT     FOR ITEM=REAL COMPONENT=    
+  IN RANGE       3 TO        3 STEP        1
+
+     1664  ELEMENTS (OF    11109  DEFINED) SELECTED BY  ESEL  COMMAND.
+
+ ALSO SELECT COMPONENT _NODECM                         
+
+ DELETE COMPONENT _NODECM                         
+
+ ALSO SELECT COMPONENT _ELEMCM                         
+
+ DELETE COMPONENT _ELEMCM                         
+
+ SELECT      COMPONENT _KPCM                           
+
+ DELETE COMPONENT _KPCM                           
+
+ SELECT      COMPONENT _LINECM                         
+
+ DELETE COMPONENT _LINECM                         
+
+ SELECT      COMPONENT _AREACM                         
+
+ DELETE COMPONENT _AREACM                         
+
+ SELECT      COMPONENT _VOLUCM                         
+
+ DELETE COMPONENT _VOLUCM                         
+
+ GRAPHICS DATABASE RESUMED FROM FILE  cwz.gsav                                                                                                                                                                                                                                                            
+
+ /INPUT FILE= cwz.gsav  LINE=       0
+
+ DELETE COMPONENT _TARGET                         
+
+ DELETE COMPONENT _CONTACT                        
+  CONTACT PAIR CREATION - END
+
+ view point for window  1   0.53247E-01-0.96760     0.24681    
+
+ ROTATION ANGLE FOR WINDOW 1 IS    -5.26 ABOUT AXIS ZS
+  CONTACT PAIR CREATION - START
+
+ DEFINITION OF COMPONENT = _NODECM   ENTITY=NODE
+
+ DEFINITION OF COMPONENT = _ELEMCM   ENTITY=ELEM
+
+ DEFINITION OF COMPONENT = _KPCM     ENTITY=KP  
+
+ DEFINITION OF COMPONENT = _LINECM   ENTITY=LINE
+
+ DEFINITION OF COMPONENT = _AREACM   ENTITY=AREA
+
+ DEFINITION OF COMPONENT = _VOLUCM   ENTITY=VOLU
+
+ GRAPHICS DATABASE SAVED ON FILE  cwz.gsav                                                                                                                                                                                                                                                            
+
+ MATERIAL         1     MU   =   0.000000      
+
+ MATERIAL NUMBER SET TO         1
+
+ MATERIAL         1     EMIS =  0.7888609E-30  
+
+ REAL CONSTANT SET       4  ITEMS   1 TO   6
+    0.0000       0.0000       0.0000       0.0000       0.0000       0.0000    
+
+ REAL CONSTANT NUMBER=        4
+
+ ELEMENT TYPE      5 IS TARGE170     3-D TARGET SEGMENT          
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ ELEMENT TYPE      6 IS CONTA174     3D 8-NODE SURF-SURF CONTACT 
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ REAL CONSTANT SET       4  ITEMS   1 TO   6
+    0.0000       0.0000       1.0000      0.10000       0.0000       0.0000    
+
+ REAL CONSTANT SET       4  ITEMS   7 TO  12
+    0.0000       0.0000      0.10000E+21   0.0000       1.0000       0.0000    
+
+ REAL CONSTANT SET       4  ITEMS  13 TO  18
+    0.0000       0.0000       1.0000       0.0000       1.0000      0.50000    
+
+ REAL CONSTANT SET       4  ITEMS  19 TO  24
+    0.0000       1.0000       1.0000       0.0000       0.0000       1.0000    
+
+ ELEMENT TYPE      6 IS CONTA174     3D 8-NODE SURF-SURF CONTACT 
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ ELEMENT TYPE      6 IS CONTA174     3D 8-NODE SURF-SURF CONTACT 
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ ELEMENT TYPE      6 IS CONTA174     3D 8-NODE SURF-SURF CONTACT 
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ ELEMENT TYPE      6 IS CONTA174     3D 8-NODE SURF-SURF CONTACT 
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ ELEMENT TYPE      6 IS CONTA174     3D 8-NODE SURF-SURF CONTACT 
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ ELEMENT TYPE      6 IS CONTA174     3D 8-NODE SURF-SURF CONTACT 
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        2      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ ELEMENT TYPE      6 IS CONTA174     3D 8-NODE SURF-SURF CONTACT 
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        2      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ ELEMENT TYPE      6 IS CONTA174     3D 8-NODE SURF-SURF CONTACT 
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        2      0      5
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ ELEMENT TYPE      6 IS CONTA174     3D 8-NODE SURF-SURF CONTACT 
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        2      0      5
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ ELEMENT TYPE      5 IS TARGE170     3-D TARGET SEGMENT          
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ SELECT       FOR ITEM=AREA COMPONENT=    
+  IN RANGE      47 TO       47 STEP        1
+
+        1  AREAS (OF       63  DEFINED) SELECTED BY  ASEL  COMMAND.
+
+ DEFINITION OF COMPONENT = _TARGET   ENTITY=AREA
+
+ ELEMENT TYPE SET TO         5
+
+ SELECT      ALL NODES (INTERIOR TO AREA, INTERIOR TO LINES, AND AT 
+        KEYPOINTS) RELATED TO SELECTED AREA SET.
+
+       81  NODES (OF    12450  DEFINED) SELECTED FROM 
+        1 SELECTED AREAS BY NSLA COMMAND.
+
+ SELECT      ALL ELEMENTS HAVING ANY NODE IN NODAL SET.
+
+       65 ELEMENTS (OF    11109  DEFINED) SELECTED FROM
+       81 SELECTED NODES BY  ESLN COMMAND.
+
+ UNSELECT    ELEMENTS CREATED FROM SELECTED LINES.
+
+       65  ELEMENTS (OF    11109  DEFINED) SELECTED FROM      108 SELECTED LINES
+         BY  ESLL  COMMAND.
+
+ UNSELECT     FOR ITEM=ENAM COMPONENT=    
+  IN RANGE     188 TO      189 STEP        1
+
+       65  ELEMENTS (OF    11109  DEFINED) SELECTED BY  ESEL  COMMAND.
+
+ ALSO SELECT ALL NODES HAVING ANY ELEMENT IN ELEMENT SET.
+ NODES SHARING BRICK FACES WITH 3 PREVIOUSLY SELECTED NODES
+
+       81 NODES (OF    12450  DEFINED) SELECTED FROM
+       65 SELECTED ELEMENTS BY NSLE COMMAND.
+
+ GENERATE ELEMENTS ON SURFACE DEFINED BY SELECTED NODES
+  TYPE=   5  REAL=      4  MATERIAL=     1  ESYS=  0
+
+ NUMBER OF ELEMENTS GENERATED=     64
+
+ SELECT      COMPONENT _ELEMCM                         
+
+ SELECT       FOR ITEM=AREA COMPONENT=    
+  IN RANGE      52 TO       52 STEP        1
+
+        1  AREAS (OF       63  DEFINED) SELECTED BY  ASEL  COMMAND.
+
+ DEFINITION OF COMPONENT = _CONTACT  ENTITY=AREA
+
+ ELEMENT TYPE SET TO         6
+
+ SELECT      ALL NODES (INTERIOR TO AREA, INTERIOR TO LINES, AND AT 
+        KEYPOINTS) RELATED TO SELECTED AREA SET.
+
+      256  NODES (OF    12450  DEFINED) SELECTED FROM 
+        1 SELECTED AREAS BY NSLA COMMAND.
+
+ SELECT      ALL ELEMENTS HAVING ANY NODE IN NODAL SET.
+
+      227 ELEMENTS (OF    11173  DEFINED) SELECTED FROM
+      256 SELECTED NODES BY  ESLN COMMAND.
+
+ ALSO SELECT ALL NODES HAVING ANY ELEMENT IN ELEMENT SET.
+ NODES SHARING BRICK FACES WITH 3 PREVIOUSLY SELECTED NODES
+
+      256 NODES (OF    12450  DEFINED) SELECTED FROM
+      227 SELECTED ELEMENTS BY NSLE COMMAND.
+
+ GENERATE ELEMENTS ON SURFACE DEFINED BY SELECTED NODES
+  TYPE=   6  REAL=      4  MATERIAL=     1  ESYS=  0
+
+ NUMBER OF ELEMENTS GENERATED=    225
+
+ SELECT ALL ENTITIES OF TYPE= ALL  AND BELOW
+
+ ALL SELECT   FOR ITEM=ELEM COMPONENT=    
+  IN RANGE       1 TO    11398 STEP        1
+
+    11398  ELEMENTS (OF    11398  DEFINED) SELECTED BY  ESEL  COMMAND.
+
+ SELECT       FOR ITEM=TYPE COMPONENT=    
+  IN RANGE       5 TO        5 STEP        1
+
+       64  ELEMENTS (OF    11398  DEFINED) SELECTED BY  ESEL  COMMAND.
+
+ ALSO SELECT  FOR ITEM=TYPE COMPONENT=    
+  IN RANGE       6 TO        6 STEP        1
+
+      289  ELEMENTS (OF    11398  DEFINED) SELECTED BY  ESEL  COMMAND.
+
+ RESELECT     FOR ITEM=REAL COMPONENT=    
+  IN RANGE       4 TO        4 STEP        1
+
+      289  ELEMENTS (OF    11398  DEFINED) SELECTED BY  ESEL  COMMAND.
+
+ ESYS SYMBOL PLOT KEY =  1
+
+ TYPE NUMBERING KEY =  1
+
+ NUMBER KEY SET TO  1  -1=NONE  0=BOTH  1=COLOR  2=NUMBER
+
+ ALL SELECT   FOR ITEM=ELEM COMPONENT=    
+  IN RANGE       1 TO    11398 STEP        1
+
+    11398  ELEMENTS (OF    11398  DEFINED) SELECTED BY  ESEL  COMMAND.
+
+ SELECT       FOR ITEM=TYPE COMPONENT=    
+  IN RANGE       5 TO        5 STEP        1
+
+       64  ELEMENTS (OF    11398  DEFINED) SELECTED BY  ESEL  COMMAND.
+
+ ALSO SELECT  FOR ITEM=TYPE COMPONENT=    
+  IN RANGE       6 TO        6 STEP        1
+
+      289  ELEMENTS (OF    11398  DEFINED) SELECTED BY  ESEL  COMMAND.
+
+ RESELECT     FOR ITEM=REAL COMPONENT=    
+  IN RANGE       4 TO        4 STEP        1
+
+      289  ELEMENTS (OF    11398  DEFINED) SELECTED BY  ESEL  COMMAND.
+
+ ALSO SELECT COMPONENT _NODECM                         
+
+ DELETE COMPONENT _NODECM                         
+
+ ALSO SELECT COMPONENT _ELEMCM                         
+
+ DELETE COMPONENT _ELEMCM                         
+
+ SELECT      COMPONENT _KPCM                           
+
+ DELETE COMPONENT _KPCM                           
+
+ SELECT      COMPONENT _LINECM                         
+
+ DELETE COMPONENT _LINECM                         
+
+ SELECT      COMPONENT _AREACM                         
+
+ DELETE COMPONENT _AREACM                         
+
+ SELECT      COMPONENT _VOLUCM                         
+
+ DELETE COMPONENT _VOLUCM                         
+
+ GRAPHICS DATABASE RESUMED FROM FILE  cwz.gsav                                                                                                                                                                                                                                                            
+
+ /INPUT FILE= cwz.gsav  LINE=       0
+
+ DELETE COMPONENT _TARGET                         
+
+ DELETE COMPONENT _CONTACT                        
+  CONTACT PAIR CREATION - END
+
+ MOVE ORIGIN OF WORKING PLANE TO THE AVERAGE OF      1 LOCATIONS IN CSYS      4
+    0.00000    ,    0.00000    ,    0.00000    
+
+ ACTIVE COORDINATE SYSTEM SET TO      0  (CARTESIAN)  
+
+ MOVE ORIGIN OF WORKING PLANE TO THE AVERAGE OF      1 LOCATIONS IN CSYS      0
+    0.00000    ,    0.00000    ,    0.00000    
+
+ ACTIVE COORDINATE SYSTEM SET TO      0  (CARTESIAN)  
+
+ *DO LOOP ON PARAMETER= I FROM  1.0000     TO  10.000     BY  1.0000    
+
+ MOVE WORKING PLANE'S FOCUS POINT 
+      0.0000     UNITS ALONG THE WORKING PLANE'S X-AXIS
+      0.0000     UNITS ALONG THE WORKING PLANE'S Y-AXIS
+     0.10000E-02 UNITS ALONG THE WORKING PLANE'S Z-AXIS
+
+ ACTIVE COORDINATE SYSTEM SET TO      4  (CARTESIAN)  
+
+ *IF  val(i,1,1)                        ( =   1.00000     )  EQ  
+      1                                 ( =   1.00000     )  THEN    
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Z     BETWEEN  0.0000     AND  0.10000E-02
+   KABS=  0.  TOLERANCE= 0.100000E-10
+
+      162  NODES (OF    12450  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ SELECT      ONLY ELEMENTS COMPLETELY CONTAINED WITHIN NODE SET.
+
+       64 ELEMENTS (OF    11398  DEFINED) SELECTED FROM
+      162 SELECTED NODES BY  ESLN COMMAND.
+
+ SECTION ID NUMBER=        1
+
+ GENERATE REINF ELEMENTS FROM THE SELECTED ELEMENTS
+
+ NUMBER OF ELEMENT TYPES CREATED =        1
+ MAXIMUM ELEMENT TYPE NUMBER     =        7
+ Use ETLIST command to list new element types.
+
+ NUMBER OF REINF ELEMENT CREATED =       64
+ MAXIMUM ELEMENT NUMBER          =    11462
+ Use ELIST command to list new elements.
+
+ ------------------------------------------------------------------------------
+            <<<<<<          SHAPE TESTING SUMMARY           >>>>>>
+            <<<<<<       FOR NEW OR MODIFIED ELEMENTS       >>>>>>
+ ------------------------------------------------------------------------------
+                    --------------------------------------
+                    |  Element count        64 REINF265  |
+                    --------------------------------------
+
+  Test                Number tested  Warning count  Error count    Warn+Err %
+  ----                -------------  -------------  -----------    ----------
+  Aspect Ratio                 64             64             0       100.00 %
+  Parallel Deviation           64              0             0         0.00 %
+  Maximum Angle                64              0             0         0.00 %
+  Jacobian Ratio               64              0             0         0.00 %
+  Warping Factor               64              0             0         0.00 %
+
+  Any                          64             64             0       100.00 %
+ ------------------------------------------------------------------------------
+
+ *** WARNING ***                         CP =       2.219   TIME= 17:57:35
+ Shape testing revealed that 64 of the 64 new or modified elements       
+ violate shape warning limits.  To review test results, please see the   
+ output file or issue the CHECK command.                                 
+
+ *ENDIF
+
+ *ENDDO  INDEX= I                               
+
+ *** WARNING ***                         CP =       2.219   TIME= 17:57:35
+ Shape testing revealed that 64 of the 64 new or modified elements       
+ violate shape warning limits.  To review test results, please see the   
+ output file or issue the CHECK command.                                 
+
+ *** WARNING ***                         CP =       2.266   TIME= 17:57:35
+ Shape testing revealed that 64 of the 64 new or modified elements       
+ violate shape warning limits.  To review test results, please see the   
+ output file or issue the CHECK command.                                 
+
+ *** WARNING ***                         CP =       2.266   TIME= 17:57:35
+ Shape testing revealed that 64 of the 64 new or modified elements       
+ violate shape warning limits.  To review test results, please see the   
+ output file or issue the CHECK command.                                 
+
+ *** WARNING ***                         CP =       2.266   TIME= 17:57:35
+ Shape testing revealed that 64 of the 64 new or modified elements       
+ violate shape warning limits.  To review test results, please see the   
+ output file or issue the CHECK command.                                 
+
+ *** WARNING ***                         CP =       2.312   TIME= 17:57:35
+ Shape testing revealed that 64 of the 64 new or modified elements       
+ violate shape warning limits.  To review test results, please see the   
+ output file or issue the CHECK command.                                 
+
+ SELECT ALL ENTITIES OF TYPE= ALL  AND BELOW
+
+
+ ***** ROUTINE COMPLETED *****  CP =         2.312
+
+
+
+ *****  ANSYS SOLUTION ROUTINE  *****
+
+
+ PERFORM A STATIC ANALYSIS
+  THIS WILL BE A NEW ANALYSIS
+
+ SURFACE LOAD ON ALL PICKED AREAS 
+     LOAD KEY =1         LOAD LABEL = PRES
+     VALUES =          0.30000E+07          0.0000    
+
+ CONSTRAINT AT ALL PICKED AREAS
+      LOAD LABELS = UX    UY    UZ  
+      VALUES =      0.0000         0.0000    
+
+                       S O L U T I O N   O P T I O N S
+
+   PROBLEM DIMENSIONALITY. . . . . . . . . . . . .3-D                  
+   DEGREES OF FREEDOM. . . . . . UX   UY   UZ  
+   ANALYSIS TYPE . . . . . . . . . . . . . . . . .STATIC (STEADY-STATE)
+   NEWTON-RAPHSON OPTION . . . . . . . . . . . . .PROGRAM CHOSEN   
+   GLOBALLY ASSEMBLED MATRIX . . . . . . . . . . .SYMMETRIC  
+
+                      L O A D   S T E P   O P T I O N S
+
+   LOAD STEP NUMBER. . . . . . . . . . . . . . . .     1
+   TIME AT END OF THE LOAD STEP. . . . . . . . . .  1.0000    
+   NUMBER OF SUBSTEPS. . . . . . . . . . . . . . .     1
+   MAXIMUM NUMBER OF EQUILIBRIUM ITERATIONS. . . .    15
+   STEP CHANGE BOUNDARY CONDITIONS . . . . . . . .DEFAULT
+   TERMINATE ANALYSIS IF NOT CONVERGED . . . . . .YES (EXIT)  
+   CONVERGENCE CONTROLS. . . . . . . . . . . . . .USE DEFAULTS
+   PRINT OUTPUT CONTROLS . . . . . . . . . . . . .NO PRINTOUT
+   DATABASE OUTPUT CONTROLS. . . . . . . . . . . .ALL DATA WRITTEN
+                                                  FOR THE LAST SUBSTEP
+
+
+ *****  ANSYS SOLVE    COMMAND  *****
+
+ TRANSFER SOLID MODEL BOUNDARY CONDITIONS TO FINITE ELEMENT MODEL
+      CONSTRAINTS    TRANSFERRED FROM AREAS         =    243
+      SYMM/ASYM CONSTRAINTS      FROM AREAS         =   1322
+      SURFACE LOADS  TRANSFERRED FROM AREAS         =    225
+
+ *** NOTE ***                            CP =       2.359   TIME= 17:57:35
+ There is no title defined for this analysis.                            
+
+ *** WARNING ***                         CP =       2.453   TIME= 17:57:35
+ Previous testing revealed that 2304 of the 11782 selected elements      
+ violate shape warning limits.  To review warning messages, please see   
+ the output or error file, or issue the CHECK command.                   
+
+ *** NOTE ***                            CP =       2.453   TIME= 17:57:35
+ The model data was checked and warning messages were found.             
+  Please review output or errors file (                                  
+ c:\Java\workspace\repo_git\server_side_installer\ansys\temp_folder\ansy 
+ ys_temp.err ) for these warning messages.                               
+
+ *** SELECTION OF ELEMENT TECHNOLOGIES FOR APPLICABLE ELEMENTS ***
+                ---GIVE SUGGESTIONS ONLY---
+
+ ELEMENT TYPE    1 IS SOLID185. IT IS ASSOCIATED WITH LINEAR MATERIALS ONLY
+ AND POISSON'S RATIO IS NOT GREATER THAN 0.49. KEYOPT(2)=3 IS SUGGESTED.
+
+
+1
+
+ ***** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE 14.5.7   *****
+ ANSYS Structural                                  
+ 00115060          VERSION=WINDOWS x64   17:57:35  SEP 21, 2016 CP=      2.453
+
+                                                                               
+
+
+                       S O L U T I O N   O P T I O N S
+
+   PROBLEM DIMENSIONALITY. . . . . . . . . . . . .3-D                  
+   DEGREES OF FREEDOM. . . . . . UX   UY   UZ  
+   ANALYSIS TYPE . . . . . . . . . . . . . . . . .STATIC (STEADY-STATE)
+   NEWTON-RAPHSON OPTION . . . . . . . . . . . . .PROGRAM CHOSEN   
+   GLOBALLY ASSEMBLED MATRIX . . . . . . . . . . .SYMMETRIC  
+
+ *** NOTE ***                            CP =       2.547   TIME= 17:57:35
+ Present time 0 is less than or equal to the previous time.  Time will   
+ default to 1.                                                           
+
+ *** NOTE ***                            CP =       2.547   TIME= 17:57:35
+ This nonlinear analysis defaults to using the full Newton-Raphson       
+ solution procedure.  This can be modified using the NROPT command.      
+
+ SOLCONTROL,ON uses sparse matrix direct solver
+
+ *** NOTE ***                            CP =       2.547   TIME= 17:57:35
+ The conditions for direct assembly have been met.  No .emat or .erot    
+ files will be produced.                                                 
+
+ *** WARNING ***                         CP =       2.547   TIME= 17:57:35
+ The program chosen initial timestep/load-factor is arbitrary.  It is    
+ necessary for the user to supply a suitable initial                     
+ timestep/load-factor through the NSUB or DELTIM command for             
+ convergence and overall efficiency.                                     
+
+                      L O A D   S T E P   O P T I O N S
+
+   LOAD STEP NUMBER. . . . . . . . . . . . . . . .     1
+   TIME AT END OF THE LOAD STEP. . . . . . . . . .  1.0000    
+   AUTOMATIC TIME STEPPING . . . . . . . . . . . .    ON
+      INITIAL NUMBER OF SUBSTEPS . . . . . . . . .     1
+      MAXIMUM NUMBER OF SUBSTEPS . . . . . . . . .  5000
+      MINIMUM NUMBER OF SUBSTEPS . . . . . . . . .     1
+      START WITH TIME STEP FROM PREVIOUS SUBSTEP .   YES
+   MAXIMUM NUMBER OF EQUILIBRIUM ITERATIONS. . . .    15
+   STEP CHANGE BOUNDARY CONDITIONS . . . . . . . .    NO
+   TERMINATE ANALYSIS IF NOT CONVERGED . . . . . .YES (EXIT)  
+   CONVERGENCE CONTROLS. . . . . . . . . . . . . .USE DEFAULTS
+   PRINT OUTPUT CONTROLS . . . . . . . . . . . . .NO PRINTOUT
+   DATABASE OUTPUT CONTROLS. . . . . . . . . . . .ALL DATA WRITTEN
+                                                  FOR THE LAST SUBSTEP
+
+
+ SOLUTION MONITORING INFO IS WRITTEN TO FILE= ansys_temp.mntr                                                                                                                                                                                                                                                     
+
+ *** NOTE ***                            CP =       3.188   TIME= 17:57:36
+ It is highly recommended to use the auto contact setting option by      
+ issuing CNCHECK,AUTO command for this problem in order to achieve       
+ better convergence.                                                     
+
+ *** NOTE ***                            CP =       3.188   TIME= 17:57:36
+ Deformable-deformable contact pair identified by real constant set 3    
+ and contact element type 4 has been set up.                             
+ Contact algorithm: Augmented Lagrange method
+ Contact detection at: Gauss integration point
+ Contact stiffness factor FKN                  1.0000    
+ The resulting contact stiffness              0.30222E+10
+ Penetration tolerance factor FTOLN           0.10000    
+ The resulting penetration tolerance          0.11250E-02
+ Opening contact stiffness factor KFOP         1.0000    
+ Default tangent stiffness factor FKT          1.0000    
+ Default elastic slip factor SLTOL            0.50000E-02
+ The resulting elastic slip                   0.18750E-03
+ Update contact stiffness at each iteration
+ Max. friction stress TAUMAX                  0.10000E+21
+ Average contact surface length               0.37500E-01
+ Average contact pair depth                   0.11250E-01
+ Default pinball region factor PINB           0.25000    
+ The resulting pinball region                 0.28125E-02
+ *WARNING*: Initial penetration/gap is included.
+ Bonded contact (always) is defined.
+ *WARNING*: Initial gap may cause problem, pl. reset KEYOPT(9).
+
+ *** NOTE ***                            CP =       3.188   TIME= 17:57:36
+ Max.  Initial penetration 0 was detected between contact element 11046  
+ and target element 9486.                                                
+ ****************************************
+  
+
+ *** NOTE ***                            CP =       3.188   TIME= 17:57:36
+ Deformable-deformable contact pair identified by real constant set 4    
+ and contact element type 6 has been set up.                             
+ Contact algorithm: Augmented Lagrange method
+ Contact detection at: Gauss integration point
+ Contact stiffness factor FKN                  1.0000    
+ The resulting contact stiffness              0.34000E+10
+ Penetration tolerance factor FTOLN           0.10000    
+ The resulting penetration tolerance          0.10000E-02
+ Opening contact stiffness factor KFOP         1.0000    
+ Default tangent stiffness factor FKT          1.0000    
+ Default elastic slip factor SLTOL            0.50000E-02
+ The resulting elastic slip                   0.50000E-04
+ Update contact stiffness at each iteration
+ Max. friction stress TAUMAX                  0.10000E+21
+ Average contact surface length               0.10000E-01
+ Average contact pair depth                   0.10000E-01
+ Default pinball region factor PINB           0.25000    
+ The resulting pinball region                 0.25000E-02
+ *WARNING*: Initial penetration/gap is included.
+ Bonded contact (always) is defined.
+ *WARNING*: Initial gap may cause problem, pl. reset KEYOPT(9).
+
+ *** NOTE ***                            CP =       3.188   TIME= 17:57:36
+ Max.  Initial penetration 3.469446952E-18 was detected between contact  
+ element 11174 and target element 11110.                                 
+ ****************************************
+  
+ MAXIMUM NUMBER OF EQUILIBRIUM ITERATIONS HAS BEEN MODIFIED              
+  TO BE, NEQIT = 25, BY SOLUTION CONTROL LOGIC.                          
+
+ *** NOTE ***                            CP =       3.266   TIME= 17:57:36
+ Predictor is ON by default for structural elements with rotational      
+ degrees of freedom.  Use the PRED,OFF command to turn the predictor     
+ OFF if it adversely affects the convergence.                            
+
+
+
+
+            **** CENTER OF MASS, MASS, AND MASS MOMENTS OF INERTIA ****
+
+  CALCULATIONS ASSUME ELEMENT MASS AT ELEMENT CENTROID
+
+  TOTAL MASS =   169.53    
+
+                           MOM. OF INERTIA         MOM. OF INERTIA
+  CENTER OF MASS            ABOUT ORIGIN        ABOUT CENTER OF MASS
+
+  XC =  0.27987          IXX =    18.70          IXX =    5.331    
+  YC =  0.27987          IYY =    18.70          IYY =    5.331    
+  ZC = -0.23099E-01      IZZ =    36.98          IZZ =    10.42    
+                         IXY =   -13.87          IXY =  -0.5922    
+                         IYZ =    1.304          IYZ =   0.2082    
+                         IZX =    1.304          IZX =   0.2082    
+
+
+  *** MASS SUMMARY BY ELEMENT TYPE ***
+
+  TYPE      MASS
+     1   166.781    
+     7   2.75000    
+
+ Range of element maximum matrix coefficients in global coordinates
+ Maximum = 389066952 at element 8919.                                    
+ Minimum = 37777.7778 at element 11314.                                  
+
+   *** ELEMENT MATRIX FORMULATION TIMES
+  TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
+
+     1      9445  SOLID185      3.797   0.000402
+     3      1600  TARGE170      0.141   0.000088
+     4        64  CONTA174      0.000   0.000000
+     5        64  TARGE170      0.000   0.000000
+     6       225  CONTA174      0.094   0.000417
+     7       384  REINF265      0.094   0.000244
+ Time at end of element matrix formulation CP = 4.734375.                
+
+ ALL CURRENT ANSYS DATA WRITTEN TO FILE NAME= ansys_temp.rdb
+  FOR POSSIBLE RESUME FROM THIS POINT
+     FORCE CONVERGENCE VALUE  =  4350.      CRITERION=  22.19    
+
+ SPARSE MATRIX DIRECT SOLVER.
+  Number of equations =       35969,    Maximum wavefront =    207
+  Memory allocated for solver =                267.443 MB
+  Memory required for in-core =                124.719 MB
+  Optimal memory required for out-of-core =     21.994 MB
+  Minimum memory required for out-of-core =     17.118 MB
+
+ *** NOTE ***                            CP =       5.391   TIME= 17:57:37
+ The Sparse Matrix solver is currently running in the in-core memory     
+ mode.  This memory mode uses the most amount of memory in order to      
+ avoid using the hard drive as much as possible, which most often        
+ results in the fastest solution time.  This mode is recommended if      
+ enough physical memory is present to accommodate all of the solver      
+ data.                                                                   
+ Sparse solver maximum pivot= 3.112535613E+09 at node 12361 UZ.          
+ Sparse solver minimum pivot= 16745.6819 at node 1055 UX.                
+ Sparse solver minimum pivot in absolute value= 16745.6819 at node 1055  
+ UX.                                                                     
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1021E-01
+     LINE SEARCH PARAMETER =  0.2474     SCALED MAX DOF INC =  0.2526E-02
+     FORCE CONVERGENCE VALUE  = 0.3489E+05  CRITERION=  30.22    
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.6942E-02
+     LINE SEARCH PARAMETER =  0.9432     SCALED MAX DOF INC =  0.6548E-02
+     FORCE CONVERGENCE VALUE  = 0.4380E+05  CRITERION=  79.10    
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.5249E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.5249E-03

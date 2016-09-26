@@ -1,0 +1,102 @@
+/COM,ANSYS RELEASE 14.5.7  UP20130316       17:57:33    09/21/2016
+
+ *** WARNING ***                         CP =       0.531   TIME= 17:57:34
+ The requested number of shared-memory processors (4) exceeds the number 
+ of physical processors that are available (3).  As the use of virtual   
+ processors is not recommended, the number of processors used will be    
+ 3.                                                                      
+
+ *** WARNING ***                         CP =       1.750   TIME= 17:57:35
+ ﻿/UNIT is not a recognized BEGIN command, abbreviation, or macro.     
+ This command will be ignored.                                           
+
+ *** WARNING ***                         CP =       1.781   TIME= 17:57:35
+ Shape testing revealed that 192 of the 192 new or modified elements     
+ violate shape warning limits.  To review test results, please see the   
+ output file or issue the CHECK command.                                 
+
+ *** WARNING ***                         CP =       1.797   TIME= 17:57:35
+ Shape testing revealed that 192 of the 192 new or modified elements     
+ violate shape warning limits.  To review test results, please see the   
+ output file or issue the CHECK command.                                 
+
+ *** WARNING ***                         CP =       1.797   TIME= 17:57:35
+ Shape testing revealed that 192 of the 192 new or modified elements     
+ violate shape warning limits.  To review test results, please see the   
+ output file or issue the CHECK command.                                 
+
+ *** WARNING ***                         CP =       1.812   TIME= 17:57:35
+ Shape testing revealed that 192 of the 192 new or modified elements     
+ violate shape warning limits.  To review test results, please see the   
+ output file or issue the CHECK command.                                 
+
+ *** WARNING ***                         CP =       1.812   TIME= 17:57:35
+ Shape testing revealed that 192 of the 192 new or modified elements     
+ violate shape warning limits.  To review test results, please see the   
+ output file or issue the CHECK command.                                 
+
+ *** WARNING ***                         CP =       1.812   TIME= 17:57:35
+ Shape testing revealed that 192 of the 192 new or modified elements     
+ violate shape warning limits.  To review test results, please see the   
+ output file or issue the CHECK command.                                 
+
+ *** WARNING ***                         CP =       1.828   TIME= 17:57:35
+ Shape testing revealed that 192 of the 192 new or modified elements     
+ violate shape warning limits.  To review test results, please see the   
+ output file or issue the CHECK command.                                 
+
+ *** WARNING ***                         CP =       1.828   TIME= 17:57:35
+ Shape testing revealed that 192 of the 192 new or modified elements     
+ violate shape warning limits.  To review test results, please see the   
+ output file or issue the CHECK command.                                 
+
+ *** WARNING ***                         CP =       1.828   TIME= 17:57:35
+ Shape testing revealed that 192 of the 192 new or modified elements     
+ violate shape warning limits.  To review test results, please see the   
+ output file or issue the CHECK command.                                 
+
+ *** WARNING ***                         CP =       1.844   TIME= 17:57:35
+ Shape testing revealed that 192 of the 192 new or modified elements     
+ violate shape warning limits.  To review test results, please see the   
+ output file or issue the CHECK command.                                 
+
+ *** WARNING ***                         CP =       2.219   TIME= 17:57:35
+ Shape testing revealed that 64 of the 64 new or modified elements       
+ violate shape warning limits.  To review test results, please see the   
+ output file or issue the CHECK command.                                 
+
+ *** WARNING ***                         CP =       2.219   TIME= 17:57:35
+ Shape testing revealed that 64 of the 64 new or modified elements       
+ violate shape warning limits.  To review test results, please see the   
+ output file or issue the CHECK command.                                 
+
+ *** WARNING ***                         CP =       2.266   TIME= 17:57:35
+ Shape testing revealed that 64 of the 64 new or modified elements       
+ violate shape warning limits.  To review test results, please see the   
+ output file or issue the CHECK command.                                 
+
+ *** WARNING ***                         CP =       2.266   TIME= 17:57:35
+ Shape testing revealed that 64 of the 64 new or modified elements       
+ violate shape warning limits.  To review test results, please see the   
+ output file or issue the CHECK command.                                 
+
+ *** WARNING ***                         CP =       2.266   TIME= 17:57:35
+ Shape testing revealed that 64 of the 64 new or modified elements       
+ violate shape warning limits.  To review test results, please see the   
+ output file or issue the CHECK command.                                 
+
+ *** WARNING ***                         CP =       2.312   TIME= 17:57:35
+ Shape testing revealed that 64 of the 64 new or modified elements       
+ violate shape warning limits.  To review test results, please see the   
+ output file or issue the CHECK command.                                 
+
+ *** WARNING ***                         CP =       2.453   TIME= 17:57:35
+ Previous testing revealed that 2304 of the 11782 selected elements      
+ violate shape warning limits.  To review warning messages, please see   
+ the output or error file, or issue the CHECK command.                   
+
+ *** WARNING ***                         CP =       2.547   TIME= 17:57:35
+ The program chosen initial timestep/load-factor is arbitrary.  It is    
+ necessary for the user to supply a suitable initial                     
+ timestep/load-factor through the NSUB or DELTIM command for             
+ convergence and overall efficiency.                                     
